@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Bull';
+    src: 
+    url('/project-TresTacos/public/fonts/Bull-Bold.otf') format('Bull-Bold'), 
+    url('/project-TresTacos/public/fonts/Bull-Heavy1.otf') format('Bull-Heavy1'),
+    url('/project-TresTacos/public/fonts/BullText-Bold.otf') format('BullText-Bold'),
+    url('/project-TresTacos/public/fonts/BullText-Medium.otf') format('BullText-Medium'),
+    url('/project-TresTacos/public/fonts/BullText-Regular.otf') format('BullText-Regular'),
+    url('/project-TresTacos/public/fonts/BullVAR.otf') format('BullVAR');
+    font-weight: normal; /* Ajusta según el peso de la fuente */
+    font-style: normal; /* Ajusta según el estilo de la fuente */
+}
+
+:root{
+    --main-bg-color: #182A4B;
+    --color-num-1: #213872;
+    --color-num-2: #213872 20%;
+    --color-num-3: #6B6C7E;
+    --color-num-4: #6B6C7E 70%;
+    --color-num-5: #CC1C4A;
+    --color-num-6: #FACD34;
+    --color-num-7: #E2E3E5;
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+}
+
+body {
+    font-family: 'Bull', sans-serif;
+}
+
+#header{
+    background-color: aqua;
+}
+#footer{
+    background-color: blueviolet;
+}

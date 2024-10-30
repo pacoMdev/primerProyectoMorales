@@ -1,0 +1,5 @@
+Link del proyecto  de Figma:
+
+https://www.figma.com/design/fPSaZhb9wBbwJziwi2MJLw/Prototype-Tres_Tacos?node-id=19-234&t=oIlI81aKieShlLY3-1
+
+Faltan animaciones y hovers que no logro que cambien de estado y animación de relleno, en la pagina de index.html sección (100% FRESH 100% HERE), tengo pensado añadir un video, o seria menor una imagen del tipo ingredientes frescos(ingredientes de los productos)
