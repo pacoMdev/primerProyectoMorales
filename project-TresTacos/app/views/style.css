@@ -1,3 +1,4 @@
+/* global settings */
 @font-face {
     font-family: 'Bull';
     src: 
@@ -20,17 +21,490 @@
     --color-num-5: #CC1C4A;
     --color-num-6: #FACD34;
     --color-num-7: #E2E3E5;
+    --color-num-8: #F6F6F6;
     --color-white: #FFFFFF;
     --color-black: #000000;
 }
-
-body {
+*{
+    margin: 0px;
+}
+body, html{
     font-family: 'Bull', sans-serif;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+ul{
+    list-style: none;
+}
+a{
+    color: var(--color-num-7);
+    text-decoration: none;
+}
+#iconoSvg{
+    height: 25px;
+    width: 25px;
 }
 
-#header{
-    background-color: aqua;
+
+/* position content */
+header{
+    width: 100vw;
+    background-color: var(--main-bg-color);
+    color: var(--color-num-7);
+    padding: 10px 0px 10px 0px;
+    text-align: center;
 }
-#footer{
-    background-color: blueviolet;
+footer {
+
+    bottom: 0;
+    width: 100vw;
+    background-color: var(--main-bg-color);
+    color: var(--color-num-7);
+    text-align: center;
+}
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* justify-content: center; */
+}
+
+/* header */
+header nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 50px;
+}
+.imageLogo{
+    height: 50px;
+    width: 50px;
+}
+.menu_navegaciones{
+    display: flex;
+    gap: 35px;
+    border: solid 1px var(--color-num-3);
+    border-radius: 100px;
+    padding: 10px 25px;
+}
+#oferta{
+    color: var(--color-num-5);
+}
+.containerIcons{
+    display: flex;
+    gap: 15px;
+}
+.iconHeader{
+    height: 25px;
+    width: 25px;
+    color: var(--color-num-7);
+}
+.containerCartCount{
+    display: flex;
+}
+.iconoUser{
+    background-color: var(--color-num-7); 
+    mask: url("/project-TresTacos/public/icons/user-regular.svg") no-repeat center;
+    -webkit-mask: url("/project-TresTacos/public/icons/user-regular.svg") no-repeat center;
+}
+.iconoStar{
+    background-color: var(--color-num-7); 
+    mask: url("/project-TresTacos/public/icons/star-regular.svgs") no-repeat center;
+    -webkit-mask: url("/project-TresTacos/public/icons/star-regular.svg") no-repeat center;
+}
+.iconoCart{
+    background-color: var(--color-num-7); 
+    mask: url("/project-TresTacos/public/icons/cart-shopping-solid.svg") no-repeat center;
+    -webkit-mask: url("/project-TresTacos/public/icons/cart-shopping-solid.svg") no-repeat center;
+}
+
+.cartCount{
+    transform: translate(-10px, -10px);
+    font-size: 10px;
+    width: 10px;
+    height: 10px;
+    padding:5px;
+    background-color: var(--color-num-5);
+    color: var(--color-num-7);
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* footer */
+#containerFooter{
+    height: 150px;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.containerIncoFoot{
+    display: flex;
+}
+.containerIncoFoot ul{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+
+
+
+
+
+/* index */
+/* carrusel index */
+#containerCarruselImg{
+    width: 100%;
+    height: 770px;
+    overflow: hidden;
+    position: relative;
+}
+.containerCarrusel{
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Efecto de transición */
+}
+
+.slide {
+    width: 100%;
+    height: 770px; /* Ajusta la altura según tus necesidades */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    flex-shrink: 0;
+    filter: brightness(0.75);
+}
+
+.slide-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    bottom: 200px;
+    width: 400px;
+    left: 50px;
+    color: white;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7); /* Sombra para mejorar la legibilidad */
+}
+
+.containerSlide h2 {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.containerSlide p {
+    font-size: 1em;
+    margin: 5px 0 0;
+}
+.containerDotts{
+    position: absolute;
+    bottom: 10px;
+    left: 50px;
+    bottom: 150px;
+    display: flex;
+    gap: 10px;
+}
+.dott{
+    height: 15px;
+    width: 15px;
+    border-radius: 100px;
+    background-color: var(--color-num-3);
+}
+.dott.active {
+    background-color: var(--color-white);
+    width: 60px;
+}
+
+
+
+/* productoDestacado index */
+#containerShowAll{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 50px;
+}
+.containerTitulo{
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.containerTitulo h2{
+    border-bottom: solid 3px var(--color-num-5);
+}
+.containerMoreInfo{
+    border-radius: 100px;
+    padding: 10px 20px;
+    border: solid 1px var(--color-num-7);
+    display: flex;
+    gap: 10px;
+}
+.iconoArrowR{
+    height: 15px;
+    width: 15px;
+    background-color: var(--color-num-7); 
+    mask: url("/project-TresTacos/public/icons/chevron-right-solid.svg") no-repeat center;
+    -webkit-mask: url("/project-TresTacos/public/icons/chevron-right-solid.svg") no-repeat center;
+}
+.containerProductosDestacados{
+    display: flex;
+    gap: 30px;
+}
+.productoDestacado{
+    height: 400px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+}
+.containerHeaderDesta{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    width: 200px;
+    text-align: center;
+}
+.tituloDesta{
+    font-size: 34px;
+}
+.precioDesta{
+    width: min-content;
+    font-size: 16px;
+    border-bottom: solid 3px var(--color-num-5);
+}
+.productoDestacado img{
+    height: auto;
+    width: 270px;
+}
+
+/* valores index */
+
+#valores{
+    width: 100%;
+}
+
+.containerValores{
+    height: 600px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    background: linear-gradient(transparent, var(--color-num-8));
+}
+.containerValores video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* video detrás del texto */
+}
+.contTitleVal{
+    width: 800px;
+    position: relative;
+    z-index: 1;
+    text-align: left;
+}
+.contTitleVal p{
+    border-bottom: solid 3px var(--color-num-5);
+    width: min-content;
+
+}
+.titleVal{
+    font-size: 88px;
+    text-align: left;
+}
+
+
+
+#containerValores_Horario{
+    /* display: flex; */
+    position: relative;
+    height: 650px;
+    width: 100%;
+    background-color: var(--color-num-8);
+}
+#containerTextVal{
+    position: absolute;
+    right: 20%;
+}
+#containerGeneralHorario{
+    position: absolute;
+    bottom: 200px;
+    left: 20%;
+}
+
+#containerTextVal{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 300px;
+    height: 350px;
+}
+#containerTextVal h2{
+    color: var(--color-num-5);
+    font-size: 36px;
+}
+#containerTextVal p{
+    color: var(--color-num-3);
+    font-size: 18px;
+}
+
+
+#containerGeneralHorario{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.containerHorarios{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.containerHorario{
+    height: 50px;
+    width: 390px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-white);
+    border-radius: 10px;
+    padding: 15px;
+    gap: 30px;
+    overflow: hidden;
+}
+.infoHorario{
+    display: flex;
+    justify-content: space-between;
+}
+.iconoFlechaD{
+    height: 25px;
+    width: 25px;
+    background-color: var(--color-num-5); 
+    mask: url("/project-TresTacos/public/icons/chevron-down-solid.svg") no-repeat center;
+    -webkit-mask: url("/project-TresTacos/public/icons/chevron-down-solid.svg") no-repeat center;
+}
+.infoh2{
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--color-num-3);
+}
+.infoh1{
+    font-size: 10px;
+    font-weight: 500;
+}
+
+
+
+#menu{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.menuTitle{
+    font-size: 40px;
+    border-bottom: solid 3px var(--color-num-5);
+}
+.containerProductos{
+    display: flex;
+    width: 90%;
+    flex-wrap: wrap;
+}
+.containerProducto{
+    height: 230px;
+    width: 310px;
+    display: flex;
+    flex-direction: column;
+}
+.imagenProducto{
+    position: relative;
+}
+.containerIconImg{
+    position: absolute;
+    right: 50px;
+    top: 10px;
+    background-color: var(--color-num-7);
+    height: 25px;
+    width: 25px;
+    border-radius: 100px;
+    align-content: center;
+    align-self: center;
+}
+.iconStar{
+    height: 20px;
+    width: 20px;
+    background-color: var(--color-black); 
+    mask: url("/project-TresTacos/public/icons/star-regular.svg") no-repeat center;
+    -webkit-mask: url("/project-TresTacos/public/icons/star-regular.svg") no-repeat center;
+
+}
+
+.imagenProducto img{
+    width: 100%;
+    height: auto;
+    object-fit: fill;
+}
+.contenidoInfo{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 185px;
+}
+.contenidoInfo h2{
+    font-size: 16px;
+}
+.contenidoInfo p{
+    font-size: 10px;
+}
+.infoPrecio h2{
+    font-size: 24px;
+}
+
+
+.containerCantidad{
+    display: flex;
+    align-items: center;
+    text-align: right;
+    gap: 5px;
+    height: 20px;
+    width: 65px;
+}
+.iconoMas{
+    height: 20px;
+    width: 20px;
+    background-color: var(--color-black); 
+    mask: url("/project-TresTacos/public/icons/add-svgrepo-com.svg") no-repeat center;
+    -webkit-mask: url("/project-TresTacos/public/icons/add-svgrepo-com.svg") no-repeat center;
+}
+.iconoMenos{
+    height: 20px;
+    width: 20px;
+    background-color: var(--color-black); 
+    mask: url("/project-TresTacos/public/icons/minus-svgrepo-com.svg") no-repeat center;
+    -webkit-mask: url("/project-TresTacos/public/icons/minus-svgrepo-com.svg") no-repeat center;
+}
+.containerIconCant{
+    position: absolute;
+    background-color: var(--color-num-7);
+    height: 25px;
+    width: 25px;
+    border-radius: 100px;
+    align-content: center;
+    align-self: center;
 }

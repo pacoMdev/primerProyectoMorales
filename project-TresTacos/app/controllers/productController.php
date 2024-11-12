@@ -5,30 +5,18 @@ include_once("models/Camiseta_DAO.php");
 
 class productoController{
     public function index(){
-        $view = "views/productos/listado.php";
-        include_once("views/main.php");
+        include_once("views2/main.php");
     }
-    public function show(){
-        include_once("views/productos/show.php");
+    public function profile(){
+        include_once("views2/profile.php");
     }
-    public function create(){
-        include_once("views/productos/create.php");
+    public function menu(){
+        include_once("views2/menu.php");
     }
-    public function destroy(){
+    public function resume(){
         // hay que modificar la tabla para añadir id
 
         header("Location:?controller=producto&action=index");
 
     }
-    public function store(){
-        // include_once("models/Camiseta_DAO.php");
-
-        $nombre = $_POST["nombre"];
-        $tipo = $_POST["tipo"];
-        $talla = $_POST["talla"];
-        $precio = $_POST["precio"];
-
-        header("Location:?controller=producto&action=index");
-    }
-    
 }
