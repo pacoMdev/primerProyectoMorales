@@ -2,17 +2,11 @@
 
 class Producto{
     protected $product_id;
-
     protected $name_product;
-
     protected $description;
-
     protected $image_url;
-
     protected $price_product;
-
     protected $category_id;
-
     protected $date_creation_product;
 
     public function __construct($product_id, $name_product, $description, $image_url, $price_product, $date_creation_product, $category_id)

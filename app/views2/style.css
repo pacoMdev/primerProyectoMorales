@@ -118,6 +118,15 @@
     border-radius: 100px;
 }
 
-.gb-linear-gradient{
+.bg-linear-gradient{
     background: linear-gradient(transparent, var(--color-num-8));
+}
+.fs-88{
+    font-size: 88px;
+}
+.icon-medium-3{
+    fill: var(--color-num-3);
+}
+.fs-normal-56{
+    font-size: 56px;
 }
