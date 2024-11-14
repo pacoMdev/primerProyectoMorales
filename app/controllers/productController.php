@@ -5,13 +5,13 @@ include_once("models/Camiseta_DAO.php");
 
 class productoController{
     public function index(){
-        include_once("views2/main.php");
+        include_once("views/main.php");
     }
     public function profile(){
-        include_once("views2/profile.php");
+        include_once("views/profile.php");
     }
     public function menu(){
-        include_once("views2/menu.php");
+        include_once("views/menu.php");
     }
     public function resume(){
         // hay que modificar la tabla para añadir id

@@ -62,27 +62,34 @@
                 <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 320 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
             </a>
         </div>
-        <div class="row gx-0 justify-content-center gap-4 p-4">
-            <a href="" class="card nav-link shadow border-0 w-25" style="width: 18rem;">
+        <div class="row row-col-3 gap-4 p-4 justify-content-center">
+            <a href="" class="col-12 col-sm-6 col-md-4 col-lg-3 card nav-link shadow border-0" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title fs-3 w-auto fw-bold">Quesadillas</h5>
                     <p class="card-text border-bottom border-2 border-danger w-auto fw-bold d-inline-flex">8.75€</p>
                 </div>
                 <img src="<?= image."0f963fc1-f4d5-4e06-9d52-34bfaf640fe7-Photoroom.png" ?>" class="card-img-top w-100 h-90" alt="imagen producto destacado">
             </a>
-            <a href="" class="col-sm-6 card nav-link shadow border-0 w-25" style="width: 18rem;">
+            <a href="" class="col-12 col-sm-6 col-md-4 col-lg-3 card nav-link shadow border-0" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title fs-3 w-auto fw-bold">Quesadillas</h5>
                     <p class="card-text border-bottom border-2 border-danger w-auto fw-bold d-inline-flex">8.75€</p>
                 </div>
-                <img src="<?= image."41439faf-a2e2-4bb3-b28f-901fd8376e36-Photoroom.png" ?>" class="card-img-top w-100 h-90" alt="imagen producto destacado">
+                <img src="<?= image."0f963fc1-f4d5-4e06-9d52-34bfaf640fe7-Photoroom.png" ?>" class="card-img-top w-100 h-90" alt="imagen producto destacado">
             </a>
-            <a href="" class="col-sm-6 card nav-link shadow border-0 w-25" style="width: 18rem;">
+            <a href="" class="col-12 col-sm-6 col-md-4 col-lg-3 card nav-link shadow border-0" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title fs-3 w-auto fw-bold">Quesadillas</h5>
-                    <p class="card-text border-bottom border-2 border-danger w-auto fw-bold d-inline-flex p-0">8.75€</p>
+                    <p class="card-text border-bottom border-2 border-danger w-auto fw-bold d-inline-flex">8.75€</p>
                 </div>
-                <img src="<?= image."tacos-png-fondo-transparente_484256-1076-Photoroom.png" ?>" class="card-img-top w-100 p-4" alt="imagen producto destacado">
+                <img src="<?= image."0f963fc1-f4d5-4e06-9d52-34bfaf640fe7-Photoroom.png" ?>" class="card-img-top w-100 h-90" alt="imagen producto destacado">
+            </a>
+            <a href="" class="col-12 col-sm-6 col-md-4 col-lg-3 card nav-link shadow border-0" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title fs-3 w-auto fw-bold">Quesadillas</h5>
+                    <p class="card-text border-bottom border-2 border-danger w-auto fw-bold d-inline-flex">8.75€</p>
+                </div>
+                <img src="<?= image."0f963fc1-f4d5-4e06-9d52-34bfaf640fe7-Photoroom.png" ?>" class="card-img-top w-100 h-90" alt="imagen producto destacado">
             </a>
         </div>
     </section>
@@ -101,8 +108,8 @@
             <h1 class=" fs-88 fw-bold">Frescos y preparados en el momento</h1>
         </div>
     </div>
-    <section class="row w-100 m-0 text-center bg-bs-color-8">
-        <div class="col p-0">
+    <section class="row row-col-3 w-100 m-0 text-center bg-bs-color-8">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-0">
             <div class="row">
                 <h1 class="m-0 p-0 w-auto d-inline-flex">HORARIO</h1>
                 <div class="row w-75">
@@ -119,7 +126,7 @@
                 </div>
             </div>
         </div>
-        <div class="col w-50 text-left">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 w-50">
             <h1 class="tx-bs-color-5 fs-normal-56 fw-bold">Sabor intenso</h1>
             <p class="tx-bs-color-3 ts-1"> En Tres Tacos, nos enorgullece ofrecer una experiencia gastronómica única basada en la calidad y frescura de nuestros productos. Todos nuestros ingredientes son 100% naturales y cuidadosamente seleccionados, asegurando que cada plato esté lleno de sabor auténtico.</p>
         </div>
@@ -131,11 +138,6 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous">
     </script>
-
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>

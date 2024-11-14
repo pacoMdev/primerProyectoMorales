@@ -1,6 +1,6 @@
 <?php
-include_once("controllers/homeController.php");
-include_once("config/parameters.php");
+include_once("../app/controllers/homeController.php");
+include_once("../app/config/parameters.php");
 
 
 if (!isset($_GET["controller"])){

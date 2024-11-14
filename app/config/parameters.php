@@ -1,13 +1,17 @@
 <?php
 // PAGES
 define("default_action", "index");
+define("default_controller", "home");
 
-// PUBLIC ITEMS
-define("url" ,"http://localhost/primerProyectoMorales/app");
-define("logo", "http://localhost/primerProyectoMorales/public/logo/");
-define("image", "http://localhost/primerProyectoMorales/public/images/");
-define("icons", "http://localhost/primerProyectoMorales/public/icons/");
-define("media", "http://localhost/primerProyectoMorales/public/media/");
+define("view_path", "/app/views");
+
+// assets ITEMS
+define("base_url" ,"http://localhost/primerProyectoMorales/app");
+
+define("logo", "http://localhost/primerProyectoMorales/assets/logo/");
+define("image", "http://localhost/primerProyectoMorales/assets/images/");
+define("icons", "http://localhost/primerProyectoMorales/assets/icons/");
+define("media", "http://localhost/primerProyectoMorales/assets/media/");
 
 // APP CSS
-define("style", "http://localhost/primerProyectoMorales/app/views2/style.css");
+define("style", "http://localhost/primerProyectoMorales/app/views/style.css");
