@@ -1,16 +1,12 @@
 <?php
 
-include_once("models/Camiseta.php");
-include_once("models/Camiseta_DAO.php");
+include_once("models/Producto.php");
+include_once("models/Producto_DAO.php");
 
 class productoController{
-    public function index(){
-        include_once("views/main.php");
-    }
-    public function profile(){
-        include_once("views/profile.php");
-    }
     public function menu(){
+        
+        $listProducts=producto_DAO::get_all_product_data();
         include_once("views/menu.php");
     }
     public function resume(){

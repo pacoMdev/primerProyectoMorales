@@ -144,3 +144,27 @@
 .carousel-indicators .active{
     width: 50px;
 }
+
+/*  */
+
+.px-10 {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.tx-left{
+    text-align: left;
+}
+.icono-stroke-7{
+    stroke: var(--color-num-7);
+}
+.border-circle{
+    border-radius: 100px;
+}
+
+
+.collapsible-container {
+    cursor: pointer;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}

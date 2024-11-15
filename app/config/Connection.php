@@ -2,7 +2,7 @@
 
 class Database
 {
-    public static function connect($host = 'localhost', $user = 'root', $pass = '', $db = 'test')
+    public static function connect($host = '127.0.0.1', $user = 'root', $pass = 'root', $db = 'Tres_Tacos_DB')
     {
         $con = new mysqli($host, $user, $pass, $db);
 

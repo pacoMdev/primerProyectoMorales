@@ -1,7 +1,7 @@
 <?php
 
 include_once("config/Connection.php");
-include_once("model/Producto.php");
+include_once("models/Producto.php");
 
 class producto_DAO{
     /**
@@ -10,17 +10,34 @@ class producto_DAO{
      */ 
     public static function get_all_product_data(){
         $conn = Database::connect();
-        $sentenciaSQL="SELECT product_id, name, description, imageURL, price, date_creation FROM product";
+        $sentenciaSQL="SELECT product_id, name, description, imageURL, price, date_creation, category_id FROM product";
         $stmtm = $conn->prepare($sentenciaSQL);
         $stmtm->execute();
         $resultado=$stmtm->get_result();
-
-        $productos=[];
+        $products=[];
         while ($row = $resultado->fetch_object()) {
-            array_push($products, new Producto($row->product_id, $row->name_product, $row->description, $row->image_url, $row->price_product, $row->date_creation_product, $row->category_id));
+            array_push($products, new Producto($row->product_id, $row->name, $row->description, $row->imageURL, $row->price, $row->date_creation, $row->category_id));
         }
         $conn->close();
-        return $productos;
+        return $products ;
+    }
+    /**
+     * Metodo que devuelve todos los productos con X nombre de categoria
+     * @param mixed $name_cat
+     * @return array
+     */
+    public static function get_all_product_data_by_category($name_cat){
+        $conn = Database::connect();
+        $sentenciaSQL="SELECT p.product_id, p.name, p.description, p.imageURL, p.price, p.date_creation, p.category_id FROM product p INNER JOIN category c ON c.category_id=p.category_id WHERE c.nameCategory='$name_cat'";
+        $stmtm = $conn->prepare($sentenciaSQL);
+        $stmtm->execute();
+        $resultado=$stmtm->get_result();
+        $products=[];
+        while ($row = $resultado->fetch_object()) {
+            array_push($products, new Producto($row->product_id, $row->name, $row->description, $row->imageURL, $row->price, $row->date_creation, $row->category_id));
+        }
+        $conn->close();
+        return $products ;
     }
     /**
      * Metodo para añadir contenido a TABLA product
