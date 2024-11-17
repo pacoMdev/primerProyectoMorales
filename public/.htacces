@@ -1,7 +1,0 @@
-<IfModule mod_rewrite.c>
-    RewriteEngine on
-    RewriteEngine
-
-</IfModule>
-
-// https://developer.mozilla.org/en-US/docs/Learn/Server-side/Apache_Configuration_htaccess#mod_rewrite_and_the_rewriteengine_directives

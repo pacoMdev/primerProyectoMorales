@@ -168,3 +168,23 @@
     padding: 10px;
     border-radius: 5px;
 }
+
+
+/* ERROR PAGE */
+
+.error-container {
+    max-width: 600px;
+    text-align: center;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.error-title {
+    font-size: 3rem;
+    color: #dc3545; /* Color rojo de Bootstrap */
+}
+.error-description {
+    font-size: 1.2rem;
+    color: #6c757d; /* Gris oscuro */
+}

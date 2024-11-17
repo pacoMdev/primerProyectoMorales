@@ -12,10 +12,9 @@
     <title>Tres tacos</title>
 </head>
 
-<body>
+<body class="d-flex flex-column">
     <?php //include_once("header.php") ?>
     <?php include_once("../assets/components/header.php") ?>
-
     <section id="carouselExampleCaptions" class="carousel slide">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"

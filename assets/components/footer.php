@@ -5,30 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <footer class="container-fluid mx-2 w-100 justify-content-between">
+<footer class="bg-bs-color-0 text-white py-4">
+    <div class="container">
         <div class="row">
-            <div class="col">
-                <ul class="">
-                    <li>Productos y compañia</li>
-                    <li>Proteccion de la marca</li>
-                    <li>Aviso de fraude</li>
-                    <li>Politica de cookies</li>
-                    <li>Politica de privacidad</li>
-                </ul>
+            <!-- Lado izquierdo: Dos columnas con listas -->
+            <div class="col-md-6 d-flex">
+                <div class="me-4">
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">Elemento 1</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Elemento 2</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Elemento 3</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Elemento 4</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Elemento 5</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">Elemento 1</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Elemento 2</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Elemento 3</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Elemento 4</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Elemento 5</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="">
-                <ul>
-                    <li>Home</li>
-                    <li>Menu</li>
-                    <li>Valores</li>
-                    <li>Ofertas</li>
-                    <li>Horario</li>
-                </ul>
+
+            <!-- Lado derecho: Título -->
+            <div class="col-md-6 text-end align-self-center">
+                <h5>2024, Tres Tacos</h5>
             </div>
         </div>
-        <div class="row">
-            <h2>®2024, Tres tacos</h2>
-        </div>
-    </footer>
+    </div>
+</footer>
+
 </body>
 </html>

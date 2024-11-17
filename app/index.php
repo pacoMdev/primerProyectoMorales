@@ -1,15 +1,16 @@
 <?php
+include_once("../app/controllers/homeController.php");
+include_once("../app/controllers/productController.php");
+include_once("../app/controllers/profileController.php");
+include_once("../app/controllers/errorController.php");
+include_once("../app/controllers/cartController.php");
 
-include_once("controllers/homeController.php");
-include_once("controllers/productController.php");
-include_once("controllers/profileController.php");
-include_once("controllers/errorController.php");
 
-include_once("config/parameters.php");
+include_once("../app/config/parameters.php");
 
 
 if (!isset($_GET["controller"])){
-    echo "No se pasa url de controller";
+    echo "No existe url de controller";
     header("Location: " . base_url . "?controller=".default_controller."&action=index");
 
 }else{

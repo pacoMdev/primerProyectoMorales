@@ -9,12 +9,10 @@ class homeController{
     public function profile(){
         include_once("views/profile.php");
     }
-    public function menu(){
-        // Mostrar todos los errores, advertencias y mensajes
-        ini_set('display_errors', 1);
-        error_reporting(E_ALL);
-        $listCategorys=category_DAO::get_all_category_data();
-        // $listProducts=producto_DAO::get_all_product_data_by_category("Tacos");
-        include_once("views/menu.php");
+    public function login(){
+        include_once("views/login.php");
+    }
+    public function register(){
+        include_once("views/register.php");
     }
 }
