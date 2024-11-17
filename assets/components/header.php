@@ -30,7 +30,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto gap-3 contenido-header border rounded-pill p-1">
                     <li class="nav-item">
-                        <a class="nav-link text-center fs-6 rounded-pill" aria-current="page" href="?controller=home&action=menu">Menu</a>
+                        <a class="nav-link text-center fs-6 rounded-pill" aria-current="page" href="?controller=product&action=menu">Menu</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-center fs-6 rounded-pill" aria-current="page" href="">Valores</a>

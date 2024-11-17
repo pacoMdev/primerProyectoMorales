@@ -11,7 +11,7 @@
             <h5 class="card-title fs-3 w-auto fw-bold">Quesadillas</h5>
             <p class="card-text border-bottom border-2 border-danger w-auto fw-bold d-inline-flex">8.75€</p>
         </div>
-        <img src="<?= image."0f963fc1-f4d5-4e06-9d52-34bfaf640fe7-Photoroom.png" ?>" class="card-img-top w-100 h-90" alt="imagen producto destacado">
+        <img src="<?= image."taco-de-queso.webp" ?>" class="card-img-top w-100 h-90" alt="imagen producto destacado">
     </a>
 </body>
 </html>

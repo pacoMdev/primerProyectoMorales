@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="<?= style; ?>?v=<?= time(); ?>">
 </head>
 <body>
-    <?php include_once("header.php"); ?>
+    <?php include_once("../assets/components/header.php"); ?>
 
     <section class="container d-flex flex-column">
         <div class="contain">
@@ -33,8 +33,7 @@
             </div>
         <?php } ?>
     </section>
-
-    <?php //include_once("footer.php"); ?>
+    <?php //include_once("../assets/components/footer.php"); ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integr="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

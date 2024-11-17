@@ -1,14 +1,19 @@
 <?php
+
 include_once("controllers/homeController.php");
+include_once("controllers/productController.php");
+include_once("controllers/profileController.php");
+include_once("controllers/errorController.php");
+
 include_once("config/parameters.php");
 
 
 if (!isset($_GET["controller"])){
-    echo "No existe url de controller";
+    echo "No se pasa url de controller";
     header("Location: " . base_url . "?controller=".default_controller."&action=index");
 
 }else{
-    $nombre_controller = $_GET["controller"]."controller";
+    $nombre_controller = $_GET["controller"]."Controller";
 
     if (class_exists($nombre_controller)){
         $controller = new $nombre_controller();

@@ -13,7 +13,8 @@
 </head>
 
 <body>
-    <?php include_once("header.php") ?>
+    <?php //include_once("header.php") ?>
+    <?php include_once("../assets/components/header.php") ?>
 
     <section id="carouselExampleCaptions" class="carousel slide">
         <div class="carousel-indicators">
@@ -51,9 +52,6 @@
             </div>
         </div>
     </section>
-
-
-
     <section class="container px-4 text-center p-4">
         <div class="row justify-content-between">
             <h2 class="border-bottom border-4 border-danger w-auto fw-bold">Productos destacados</h2>
@@ -69,7 +67,7 @@
             <?php include("../assets/components/cardProductDestacado.php")?>
         </div>
     </section>
-    <div class="video-container w-100 h-100 overflow-hidden position-relative">
+    <section class="video-container w-100 h-100 overflow-hidden position-relative">
         <video autoplay muted loop height="650px" width="100%" class="object-fit-cover">
             <source src="<?= media."4970524-uhd_4096_2160_30fps.mp4";?>" type="video/mp4">
             Tu navegador no soporta la reproducción de video.
@@ -83,13 +81,11 @@
             <p class="border-4 border-bottom border-danger w-auto d-inline-flex">VALORES</p>
             <h1 class=" fs-88 fw-bold">Frescos y preparados en el momento</h1>
         </div>
-    </div>
+    </section>
     <section class="row row-col-3 w-100 m-0 text-center bg-bs-color-8 justify-content-center">
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 w-50 px-10">
-            <!-- <div class="container mt-4"> -->
             <div class="collapsible-container" data-bs-toggle="collapse" data-bs-target="#textContent">
-                <!-- <p class="mb-0">Este es el primer texto (visible por defecto).</p> -->
-                <div class="d-flex w-100 justify-content-between" data-bs-toggle="collapse" data-bs-target="#contenidoDias" aria-expanded="false" aria-controls="contenidoDias">
+                <div class="d-flex w-100 justify-content-between">
                     <div class="container w-100 justify-content-between">
                         <p class="tx-bs-color- fs-6 m-0 w-auto d-inline-flex">TEXTO</p>
                         <p class="tb-bs-color-black fs-4 m-0 w-auto d-inline-flex">Dias</p>
@@ -99,7 +95,6 @@
                 <div class="collapse" id="textContent">
                     <p class="mb-0">Este es el segundo texto (aparece al hacer clic).</p>
                 </div>
-            <!-- </div> -->
         </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 w-50 px-10 tx-left">
@@ -108,7 +103,7 @@
         </div>
     </section>
 
-    <?php //include_once("footer.php") ?>
+    <?php include_once("../assets/components/footer.php"); ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
