@@ -19,21 +19,14 @@
         <?php 
             foreach ($listCategorys as $category) { 
                 $nameCategory = $category->getNameCategory();
-                $listProducts=producto_DAO::get_all_product_data_by_category($nameCategory);
-                echo $listProducts[0]->getName_product();
-                echo $nameCategory;
         ?>
+            <p class="fw-bold"><?= $nameCategory ?></p>
             <div class="row row-col-3 gap-4">
-                <?php 
-                    foreach ($listProducts as $product){
-                        echo $product->getName_product();
-                        include("../assets/components/cardProductMenu.php");
-                    }
-                ?>
+                <?php include_once("../assets/components/cardProductMenu.php"); ?>
             </div>
         <?php } ?>
     </section>
-    <?php //include_once("../assets/components/footer.php"); ?>
+    <?php include_once("../assets/components/footer.php"); ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integr="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

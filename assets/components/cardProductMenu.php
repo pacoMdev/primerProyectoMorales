@@ -1,10 +1,15 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <body>
+    <?php 
+        foreach($listProducts as $product){ 
+        if ($category->getCategory_id()==$product->getCategory_id()){
+    ?>
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 container-sm card border-0 p-0 m-0" style="width:300px;">
         <img src="<?= image."taco-de-queso.webp"; ?>" height="90%" width="100%" class="card-img-top" alt="imagen del producto">
         <div class="card-body">
-            <h5 class="card-title fw-bold fs-4"><?= $product->getName_product() ?></h5>
+            <h5 class="card-title fw-bold fs-4"><?= $product->getName() ?></h5>
             <p class="card-text fw-lighter fs-6">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             <div class="container d-flex gap-5 align-content-center">
                 <p class="fw-3 fs-2">8.75€</p>
@@ -20,5 +25,9 @@
             </div>
         </div>
     </div>
+    <?php
+        }
+    }
+    ?>
 </body>
 </html>

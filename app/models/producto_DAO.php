@@ -10,13 +10,13 @@ class producto_DAO{
      */ 
     public static function get_all_product_data(){
         $conn = Database::connect();
-        $sentenciaSQL="SELECT product_id, name, description, imageURL, price, date_creation, category_id FROM product";
+        $sentenciaSQL="SELECT * FROM product";
         $stmtm = $conn->prepare($sentenciaSQL);
         $stmtm->execute();
         $resultado=$stmtm->get_result();
         $products=[];
-        while ($row = $resultado->fetch_object()) {
-            array_push($products, new Producto($row->product_id, $row->name, $row->description, $row->imageURL, $row->price, $row->date_creation, $row->category_id));
+        while ($row = $resultado->fetch_object("Producto")) {
+            array_push($products, $row);
         }
         $conn->close();
         return $products ;
@@ -26,15 +26,15 @@ class producto_DAO{
      * @param mixed $name_cat
      * @return array
      */
-    public static function get_all_product_data_by_category($name_cat){
+    public static function get_all_product_data_by_category($category_id){
         $conn = Database::connect();
-        $sentenciaSQL="SELECT p.product_id, p.name, p.description, p.imageURL, p.price, p.date_creation, p.category_id FROM product p INNER JOIN category c ON c.category_id=p.category_id WHERE c.nameCategory='$name_cat'";
+        $sentenciaSQL="SELECT * FROM product WHERE category_id=$category_id";
         $stmtm = $conn->prepare($sentenciaSQL);
         $stmtm->execute();
         $resultado=$stmtm->get_result();
         $products=[];
-        while ($row = $resultado->fetch_object()) {
-            array_push($products, new Producto($row->product_id, $row->name, $row->description, $row->imageURL, $row->price, $row->date_creation, $row->category_id));
+        while ($row = $resultado->fetch_object("Producto")) {
+            array_push($products, $row);
         }
         $conn->close();
         return $products ;

@@ -2,23 +2,23 @@
 
 class Producto{
     protected $product_id;
-    protected $name_product;
+    protected $name;
     protected $description;
-    protected $image_url;
-    protected $price_product;
+    protected $imageURL;
+    protected $price;
     protected $category_id;
-    protected $date_creation_product;
+    protected $date_creation;
 
-    public function __construct($product_id, $name_product, $description, $image_url, $price_product, $date_creation_product, $category_id)
-    {
-        $this->$product_id = $product_id;
-        $this->$name_product = $name_product;
-        $this->$description = $description;
-        $this->$image_url = $image_url;
-        $this->$price_product = $price_product;
-        $this->$category_id = $category_id;
-        $this->$date_creation_product = $date_creation_product;
-    }
+    // public function __construct($product_id, $name, $description, $imageURL, $price, $category_id, $date_creation)
+    // {
+    //     $this->$product_id = $product_id;
+    //     $this->$name = $name;
+    //     $this->$description = $description;
+    //     $this->$imageURL = $imageURL;
+    //     $this->$price = $price;
+    //     $this->$category_id = $category_id;
+    //     $this->$date_creation = $date_creation;
+    // }
     
 
 
@@ -43,21 +43,21 @@ class Producto{
     }
 
     /**
-     * Get the value of name_product
+     * Get the value of$name
      */ 
-    public function getName_product()
+    public function getName()
     {
-        return $this->name_product;
+        return $this->name;
     }
 
     /**
-     * Set the value of name_product
+     * Set the value of$name
      *
      * @return  self
      */ 
-    public function setName_product($name_product)
+    public function setName($name)
     {
-        $this->name_product = $name_product;
+        $this->$name = $name;
 
         return $this;
     }
@@ -85,9 +85,9 @@ class Producto{
     /**
      * Get the value of image_url
      */ 
-    public function getImage_url()
+    public function getImageURL()
     {
-        return $this->image_url;
+        return $this->imageURL;
     }
 
     /**
@@ -95,9 +95,9 @@ class Producto{
      *
      * @return  self
      */ 
-    public function setImage_url($image_url)
+    public function setImageURL($imageURL)
     {
-        $this->image_url = $image_url;
+        $this->imageURL = $imageURL;
 
         return $this;
     }
@@ -105,9 +105,9 @@ class Producto{
     /**
      * Get the value of price_product
      */ 
-    public function getPrice_product()
+    public function getPrice()
     {
-        return $this->price_product;
+        return $this->price;
     }
 
     /**
@@ -115,9 +115,9 @@ class Producto{
      *
      * @return  self
      */ 
-    public function setPrice_product($price_product)
+    public function setPrice($price)
     {
-        $this->price_product = $price_product;
+        $this->price = $price;
 
         return $this;
     }
@@ -145,9 +145,9 @@ class Producto{
     /**
      * Get the value of date_creation_product
      */ 
-    public function getDate_creation_product()
+    public function getDate_creation()
     {
-        return $this->date_creation_product;
+        return $this->date_creation;
     }
 
     /**
@@ -155,9 +155,9 @@ class Producto{
      *
      * @return  self
      */ 
-    public function setDate_creation_product($date_creation_product)
+    public function setDate_creation($date_creation)
     {
-        $this->date_creation_product = $date_creation_product;
+        $this->date_creation = $date_creation;
 
         return $this;
     }

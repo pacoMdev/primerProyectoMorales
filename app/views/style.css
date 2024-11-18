@@ -188,3 +188,16 @@
     font-size: 1.2rem;
     color: #6c757d; /* Gris oscuro */
 }
+.contador-cart{
+    position: absolute;
+    text-align: center;
+    height: 25px;
+    width: 25px;
+    font-size: 15px;
+    text-decoration: none;
+    border-radius: 100px;
+    bottom: 15px;
+    left: 20px;
+    margin: 0px;
+    color: var(--color-white);
+}
