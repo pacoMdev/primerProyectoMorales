@@ -38,7 +38,7 @@ class producto_DAO{
         $sentenciaSQL="INSERT INTO user (email, password, phone, direccion, poblacion, ciudad, date_modification, date_creation, name, surname) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmtm = $conn->prepare($sentenciaSQL);
 
-        $stmtm->bind_param("ssisssssss",$usuario->getEmail(), $password->getPassword(), $phone->getPhone(), $usuario->getEmail());
+        $stmtm->bind_param("ssisssssss",$usuario->getEmail(), $usuario->getPassword(), $usuario->getPhone(), $usuario->getEmail());
         $stmtm->execute();
         $conn->close();
     }

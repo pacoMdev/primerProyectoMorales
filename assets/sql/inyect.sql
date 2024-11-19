@@ -1,0 +1,10 @@
+-- insert into product (name, description, imageURL, price, category_id, date_creation) VALUES ("Burrito de pollo y verduras", "Pollo jugoso, acompañados de verduras frescas y sazonados con especias irresistibles", "burrito-pollo-verduras.webp" , 9.86, 2, NOW());
+-- insert into product (name, description, imageURL, price, category_id, date_creation) VALUES ("Corona", "Suave, toques cítricos y perfecta para disfrutar en cualquier ocasión", "corona.webp", 2.43, 4, NOW());
+-- insert into product (name, description, imageURL, price, category_id, date_creation) VALUES ("Burrito de cordero", "Cordero tierno, sazonado con especias, acompañado de vegetales frescos y salsa cremosa", "burrito-de-cordero.webp", 10.67, 2, NOW());
+-- insert into product (name, description, imageURL, price, category_id, date_creation) VALUES ("Burrito de pollo al pastor", "Pollo al pastor, relleno de piña, especias, y acompañado de salsa irresistible", "burrito-de-pollo-al-pastor.webp", 11.22, 2, NOW());
+-- insert into product (name, description, imageURL, price, category_id, date_creation) VALUES ("Fanta naranja", "con burbujas vibrantes y un delicioso sabor cítrico lleno de energía", "fanta-naranja.webp", 11.22, 4, NOW());
+insert into product (name, description, imageURL, price, category_id, date_creation) VALUES ("Taco Vegetal", "Vegetal con frescas verduras, sazonadas con especias, servido en una tortilla suave", "taco-vegetal.webp", 11.22, 1, NOW());
+insert into product (name, description, imageURL, price, category_id, date_creation) VALUES ("Taco Clasico", "Clásico, relleno de carne sazonada, cebolla, cilantro y salsa fresca", "taco-casico.webp", 11.22, 1, NOW());
+insert into product (name, description, imageURL, price, category_id, date_creation) VALUES ("Taco de Carne", "Carne jugosa, sazonada perfectamente, acompañada de cebolla, cilantro y salsa picante", "taco-de-carne.webp", 11.22, 1, NOW());
+insert into product (name, description, imageURL, price, category_id, date_creation) VALUES ("", "", ".webp", 11.22, 1, NOW());
+insert into product (name, description, imageURL, price, category_id, date_creation) VALUES ("", "", ".webp", 11.22, 1, NOW());

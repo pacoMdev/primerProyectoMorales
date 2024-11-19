@@ -109,7 +109,7 @@
 }
 .icono-header-medium{
     fill: var(--color-num-7);
-    font-size: 30px;
+    /* font-size: 30px; */
 }
 
 #navbarSupportedContent .nav-link:hover{
@@ -126,6 +126,9 @@
 }
 .icon-medium-3{
     fill: var(--color-num-3);
+}
+.icon-color-white{
+    fill: var(--color-white);
 }
 .fs-normal-56{
     font-size: 56px;
@@ -189,15 +192,14 @@
     color: #6c757d; /* Gris oscuro */
 }
 .contador-cart{
-    position: absolute;
+    position: relative;
     text-align: center;
     height: 25px;
     width: 25px;
     font-size: 15px;
-    text-decoration: none;
     border-radius: 100px;
-    bottom: 15px;
-    left: 20px;
+    bottom: 10px;
+    left: -5px;
     margin: 0px;
     color: var(--color-white);
 }

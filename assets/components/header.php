@@ -10,7 +10,7 @@
 
 <body>
     <nav class="bg-bs-color-0 navbar navbar-expand-lg bg-bs-color-0">
-        <div class="container-fluid">
+        <div class="container-fluid p-0 m-0">
             <a class="navbar-brand" href="?"><img src="<?= (logo."_07827ff2-68a6-4dd1-acd3-4a346812c659-Photoroom.png"); ?>" alt="logo" height="50px" width="50px"></a>
             <button class="navbar-toggler border border-circle" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -27,6 +27,7 @@
                 <path d="M19 21C20.1046 21 21 20.1046 21 19C21 17.8954 20.1046 17 19 17C17.8954 17 17 17.8954 17 19C17 20.1046 17.8954 21 19 21Z" fill="#000000"/>
                 </svg>
             </button>
+            
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto gap-3 contenido-header border rounded-pill p-1">
                     <li class="nav-item">
@@ -44,7 +45,7 @@
                 </ul>
                 <ul class="navbar-nav gap-3 gx-5">
                     <li class="nav-item dropdown">
-                        <a href="" class="icono-header-medium">
+                        <a href="?controller=home&action=login" class="icono-header-medium">
                             <svg xmlns="http://www.w3.org/2000/svg" height="25px" viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464l349.5 0c-8.9-63.3-63.3-112-129-112l-91.4 0c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304l91.4 0C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7L29.7 512C13.3 512 0 498.7 0 482.3z"/></svg>
                         </a>
                     </li>
@@ -55,8 +56,9 @@
                     </li>
                     <li class="nav-item dropdown icono-header-medium">
                         <a href="?controller=cart&action=resume" class="icono-header-medium d-flex">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="25px" viewBox="0 0 576 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 24C0 10.7 10.7 0 24 0L69.5 0c22 0 41.5 12.8 50.6 32l411 0c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3l-288.5 0 5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5L488 336c13.3 0 24 10.7 24 24s-10.7 24-24 24l-288.3 0c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5L24 48C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>
-                            <p class="bg-bs-color-5 border-cicle contador-cart">0</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="25px" viewBox="0 0 576 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 24C0 10.7 10.7 0 24 0L69.5 0c22 0 41.5 12.8 50.6 32l411 0c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3l-288.5 0 5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5L488 336c13.3 0 24 10.7 24 24s-10.7 24-24 24l-288.3 0c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5L24 48C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/>
+                            <p class="bg-bs-color-5 border-cicle contador-cart">99</p>
+                        </svg>
                         </a>
                     </li>
                 </ul>

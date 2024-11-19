@@ -16,15 +16,8 @@
         <div class="contain">
             <h1 class="fw-bold border-bottom border-danger border-5 d-inline-flex">MENU</h1>
         </div>
-        <?php 
-            foreach ($listCategorys as $category) { 
-                $nameCategory = $category->getNameCategory();
-        ?>
-            <p class="fw-bold"><?= $nameCategory ?></p>
-            <div class="row row-col-3 gap-4">
-                <?php include_once("../assets/components/cardProductMenu.php"); ?>
-            </div>
-        <?php } ?>
+        <?= include_once("../assets/components/cardsProductsMenu.php") ?>
+        
     </section>
     <?php include_once("../assets/components/footer.php"); ?>
 
