@@ -27,6 +27,9 @@ if (!isset($_GET["controller"])){
         }
         $controller->$action();
     }else{
+$errorController = $nombre_controller;
+        header("Location: ".base_url."?controller=error&action=error404Controller&controllerName=" . $errorController);
+
         echo "no existe el controlador -> " . $nombre_controller;
     }
 }

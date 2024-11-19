@@ -9,4 +9,14 @@ class errorController{
 
         include_once("views/errorPage.php");
     }
+    public function error404Controller(){
+        $titleErrorTitle="Error 404 - Not Found";
+        $errorCode="404";
+        $titleErrorCode="Not Found";
+        $errorController = $_GET["controllerName"];
+        $descriptionError="El controlador solicitado (" . $errorController . ") no se ha encontrado en el servidor. <br>
+            Es posible que la URL esté mal escrita o que el controlador no exista.";
+
+        include_once("views/errorPage.php");
+    }
 }

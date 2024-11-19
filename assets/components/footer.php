@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<footer class="bg-bs-color-0 text-white py-4">
+<footer class="bg-bs-color-0 text-white py-4 stiky-bottom">
     <div class="container">
         <div class="row">
             <!-- Lado izquierdo: Dos columnas con listas -->

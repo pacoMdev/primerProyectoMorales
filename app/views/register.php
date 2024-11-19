@@ -6,6 +6,8 @@
     <title>Registro</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?= style; ?>?v=<?= time(); ?>">
+
     <style>
 
         .register-container {
@@ -19,37 +21,44 @@
     </style>
 </head>
 <body>
-    <div class="register-container mx-auto">
+    <div class="register-container mx-auto align-middle text-center w-100 bg-bs-color-white rounded shadow">
         <h2 class="text-center mb-4">Regístrate</h2>
-        <form action="process_register.php" method="POST">
+        <div class="w-100 justify-content-center mx-auto">
+            <a href="?controller=home&action=index">
+                <img src="<?= logo."_07827ff2-68a6-4dd1-acd3-4a346812c659-Photoroom.png" ?>" alt=" logo de la empresa" height="150px" width="150px">
+            </a>
+            <h4 class="fw-normal">Bienvenido</h4>
+            <p class="fw-light">Create una cuenta para sentir el verdadero sabor de Tres Tacos</p>
+        </div>
+        <form action="?controller=user&action=try_register" method="POST">
             <!-- Campo de Nombre -->
             <div class="mb-3">
-                <label for="name" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Ingresa tu nombre" required>
+
+                <input type="text" class="form-control" id="name" name="name" placeholder="Ingresa tu nombre*" required>
             </div>
             <!-- Campo de Apellido -->
             <div class="mb-3">
-                <label for="surname" class="form-label">Apellido</label>
-                <input type="text" class="form-control" id="surname" name="surname" placeholder="Ingresa tu apellido" required>
+
+                <input type="text" class="form-control" id="surname" name="surname" placeholder="Ingresa tu apellido*" required>
             </div>
             <!-- Campo de Email -->
             <div class="mb-3">
-                <label for="email" class="form-label">Correo Electrónico</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Ingresa tu correo" required>
+
+                <input type="email" class="form-control" id="email" name="email" placeholder="Ingresa tu correo*" required>
             </div>
             <!-- Campo de Contraseña -->
             <div class="mb-3">
-                <label for="password" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Crea una contraseña" required>
+
+                <input type="password" class="form-control" id="password" name="password" placeholder="Crea una contraseña*" required>
             </div>
             <!-- Confirmar Contraseña -->
             <div class="mb-3">
-                <label for="confirm-password" class="form-label">Confirmar Contraseña</label>
-                <input type="password" class="form-control" id="confirm-password" name="confirm_password" placeholder="Confirma tu contraseña" required>
+
+                <input type="password" class="form-control" id="confirm-password" name="confirm_password" placeholder="Confirma tu contraseña*" required>
             </div>
             <!-- Botón de Registro -->
             <div class="d-grid">
-                <button type="submit" class="btn btn-success">Crear Cuenta</button>
+                <button type="submit" class="btn bg-bs-color-5 border-0 rounded tx-bs-color-white py-3 fw-light">Crear Cuenta</button>
             </div>
         </form>
         <!-- Enlace para Iniciar Sesión -->

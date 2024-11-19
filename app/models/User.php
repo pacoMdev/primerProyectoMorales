@@ -23,23 +23,23 @@ class User{
 
     protected $name;
 
-    protected $surname;
+    protected $surname_1;
 
-    public function __construct($user_id, $email, $apple_id, $password, $phone, $direccion, $poblacion, $ciudad, $date_modification, $date_creation, $name, $surname)
-    {
-        $this->user_id = $user_id;
-        $this->email = $email;
-        $this->apple_id = $apple_id;
-        $this->password = $password;
-        $this->phone = $phone;
-        $this->direccion = $direccion;
-        $this->poblacion = $poblacion;
-        $this->ciudad = $ciudad;
-        $this->date_modification = $date_modification;
-        $this->date_creation = $date_creation;
-        $this->name = $name;
-        $this->surname = $surname;
-    }
+    // public function __construct($user_id, $email, $apple_id, $password, $phone, $direccion, $poblacion, $ciudad, $date_modification, $date_creation, $name, $surname_1)
+    // {
+    //     $this->user_id = $user_id;
+    //     $this->email = $email;
+    //     $this->apple_id = $apple_id;
+    //     $this->password = $password;
+    //     $this->phone = $phone;
+    //     $this->direccion = $direccion;
+    //     $this->poblacion = $poblacion;
+    //     $this->ciudad = $ciudad;
+    //     $this->date_modification = $date_modification;
+    //     $this->date_creation = $date_creation;
+    //     $this->name = $name;
+    //     $this->surname_1 = $surname_1;
+    // }
 
     /**
      * Get the value of user_id
@@ -262,21 +262,21 @@ class User{
         }
 
         /**
-         * Get the value of surname
+         * Get the value of surname_1
          */ 
-        public function getSurname()
+        public function getSurname_1()
         {
-                return $this->surname;
+                return $this->surname_1;
         }
 
         /**
-         * Set the value of surname
+         * Set the value of surname_1
          *
          * @return  self
          */ 
-        public function setSurname($surname)
+        public function setSurname_1($surname_1)
         {
-                $this->surname = $surname;
+                $this->surname_1 = $surname_1;
 
                 return $this;
         }
