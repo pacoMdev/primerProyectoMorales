@@ -24,22 +24,26 @@ class User{
     protected $name;
 
     protected $surname_1;
+    
+    public function __construct(){
 
-    // public function __construct($user_id, $email, $apple_id, $password, $phone, $direccion, $poblacion, $ciudad, $date_modification, $date_creation, $name, $surname_1)
-    // {
-    //     $this->user_id = $user_id;
-    //     $this->email = $email;
-    //     $this->apple_id = $apple_id;
-    //     $this->password = $password;
-    //     $this->phone = $phone;
-    //     $this->direccion = $direccion;
-    //     $this->poblacion = $poblacion;
-    //     $this->ciudad = $ciudad;
-    //     $this->date_modification = $date_modification;
-    //     $this->date_creation = $date_creation;
-    //     $this->name = $name;
-    //     $this->surname_1 = $surname_1;
-    // }
+    }
+
+    public function hydrate(array $data){
+        
+        $this->user_id = $data["user_id"] ?? null;
+        $this->email =$data["email"] ?? "null";
+        $this->apple_id = $data["apple_id"] ?? null;
+        $this->password = $data["password"] ?? "null";
+        $this->phone = $data["phone"] ?? null;
+        $this->direccion = $data["direccion"] ?? null;
+        $this->poblacion = $data["poblacion"] ?? null;
+        $this->ciudad = $data["ciudad"] ?? null;
+        $this->date_modification = $data["date_modification"] ?? null;
+        $this->date_creation = $data["date_creation"] ?? null;
+        $this->name = $data["name"] ?? null;
+        $this->surname_1 = $data["surname_1"] ?? null;
+    }
 
     /**
      * Get the value of user_id

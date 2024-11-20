@@ -1,15 +1,17 @@
 /* global settings */
 @font-face {
     font-family: 'Bull';
-    src: 
-    url('/project-TresTacos/public/fonts/Bull-Bold.otf') format('Bull-Bold'), 
-    url('/project-TresTacos/public/fonts/Bull-Heavy1.otf') format('Bull-Heavy1'),
-    url('/project-TresTacos/public/fonts/BullText-Bold.otf') format('BullText-Bold'),
-    url('/project-TresTacos/public/fonts/BullText-Medium.otf') format('BullText-Medium'),
-    url('/project-TresTacos/public/fonts/BullText-Regular.otf') format('BullText-Regular'),
-    url('/project-TresTacos/public/fonts/BullVAR.otf') format('BullVAR');
-    font-weight: normal; /* Ajusta según el peso de la fuente */
-    font-style: normal; /* Ajusta según el estilo de la fuente */
+    src:
+        url('/project-TresTacos/public/fonts/Bull-Bold.otf') format('Bull-Bold'),
+        url('/project-TresTacos/public/fonts/Bull-Heavy1.otf') format('Bull-Heavy1'),
+        url('/project-TresTacos/public/fonts/BullText-Bold.otf') format('BullText-Bold'),
+        url('/project-TresTacos/public/fonts/BullText-Medium.otf') format('BullText-Medium'),
+        url('/project-TresTacos/public/fonts/BullText-Regular.otf') format('BullText-Regular'),
+        url('/project-TresTacos/public/fonts/BullVAR.otf') format('BullVAR');
+    font-weight: normal;
+    /* Ajusta según el peso de la fuente */
+    font-style: normal;
+    /* Ajusta según el estilo de la fuente */
 }
 
 :root {
@@ -98,53 +100,62 @@
     color: var(--color-black);
 }
 
-*{
+* {
     margin: 0px;
     font-family: 'Bull', sans-serif;
 }
+
 /* HEADER */
 
-.contenido-header li a{
+.contenido-header li a {
     color: var(--color-white);
 }
-.icono-header-medium{
+
+.icono-header-medium {
     fill: var(--color-num-7);
     /* font-size: 30px; */
 }
 
-#navbarSupportedContent .nav-link:hover{
+#navbarSupportedContent .nav-link:hover {
     color: var(--color-white);
     background-color: var(--color-num-3);
     border-radius: 100px;
 }
 
-.bg-linear-gradient{
+.bg-linear-gradient {
     background: linear-gradient(transparent, var(--color-num-8));
 }
-.fs-88{
+
+.fs-88 {
     font-size: 88px;
 }
-.icon-medium-3{
+
+.icon-medium-3 {
     fill: var(--color-num-3);
 }
-.icon-color-white{
+
+.icon-color-white {
     fill: var(--color-white);
 }
-.fs-normal-56{
+
+.fs-normal-56 {
     font-size: 56px;
 }
+
 /* slicer principal */
-.carousel-indicators{
+.carousel-indicators {
     gap: 10px;
 }
-.carousel-indicators [data-bs-target]{
+
+.carousel-indicators [data-bs-target] {
     height: 12px;
     width: 12px;
     margin: 0;
     border: 0;
     border-radius: 10px;
 }
-.carousel-indicators .active{
+
+.carousel-indicators .active {
     width: 50px;
 }
 
@@ -154,13 +165,16 @@
     padding-left: 10%;
     padding-right: 10%;
 }
-.tx-left{
+
+.tx-left {
     text-align: left;
 }
-.icono-stroke-7{
+
+.icono-stroke-7 {
     stroke: var(--color-num-7);
 }
-.border-circle{
+
+.border-circle {
     border-radius: 100px;
 }
 
@@ -183,15 +197,20 @@
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 .error-title {
     font-size: 3rem;
-    color: #dc3545; /* Color rojo de Bootstrap */
+    color: #dc3545;
+    /* Color rojo de Bootstrap */
 }
+
 .error-description {
     font-size: 1.2rem;
-    color: #6c757d; /* Gris oscuro */
+    color: #6c757d;
+    /* Gris oscuro */
 }
-.contador-cart{
+
+.contador-cart {
     position: relative;
     text-align: center;
     height: 25px;
@@ -202,4 +221,35 @@
     left: -5px;
     margin: 0px;
     color: var(--color-white);
+}
+
+.collapse-card-user {
+    position: absolute;
+    top: 120%;
+    right: 30px;
+    z-index: 1;
+}
+.avatar{
+    height: 50px;
+    width: 50px;
+    border-radius: 100px;
+    align-content: center;
+    text-align: center;
+    background-color: var(--color-num-6);
+}
+.avatarH{
+    height: 30px;
+    width: 30px;
+    border-radius: 100px;
+    align-content: center;
+    text-align: center;
+    background-color: var(--color-num-6);
+}
+.avatar3{
+    height: 100px;
+    width: 100px;
+    border-radius: 100px;
+    align-content: center;
+    text-align: center;
+    background-color: var(--color-num-6);
 }

@@ -11,9 +11,10 @@
 
     <title>Tres tacos</title>
 </head>
-
 <body class="d-flex flex-column">
-    <?php //include_once("header.php") ?>
+    <?php 
+        // session_start();
+    ?>
     <?php include_once("../assets/components/header.php") ?>
     <section id="carouselExampleCaptions" class="carousel slide">
         <div class="carousel-indicators">
@@ -26,7 +27,7 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="<?= image . "delicious-tacos.jpg"; ?>" class="d-block w-100 object-fit-cover" alt="Plato de tacos"
+                <img src="<?= image . "delicious-tacos.webp"; ?>" class="d-block w-100 object-fit-cover" alt="Plato de tacos"
                     height="650px">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>First slide label</h5>
@@ -34,7 +35,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="<?= image . "delicious-nachos.jpg"; ?>" class="d-block w-100 object-fit-cover" alt="Plato de nachos"
+                <img src="<?= image . "delicious-nachos.webp"; ?>" class="d-block w-100 object-fit-cover" alt="Plato de nachos"
                     height="650px">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Second slide label</h5>
@@ -42,7 +43,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="<?= image . "delicious-burritos.png"; ?>" class="d-block w-100 object-fit-cover" alt="Plato de burritos"
+                <img src="<?= image . "delicious-burritos.webp"; ?>" class="d-block w-100 object-fit-cover" alt="Plato de burritos"
                     height="650px">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Third slide label</h5>

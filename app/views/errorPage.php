@@ -1,8 +1,3 @@
-<?php
-    http_response_code(500);
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +10,11 @@
     <link rel="stylesheet" href="<?= style; ?>?v=<?= time(); ?>">
 </head>
 <body>
-    <?php include_once("../assets/components/header.php") ?>
+    <?php
+        include_once("../assets/components/header.php");
+        http_response_code(response_code: intval($errorCode));
+
+    ?>
     <main class="container py-5">
         <div class="error-container mx-auto m-5">
             <h1 class="error-title"><?= $errorCode ?></h1>

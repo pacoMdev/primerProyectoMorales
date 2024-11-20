@@ -1,9 +1,11 @@
 <?php
 include_once("../app/controllers/homeController.php");
 include_once("../app/controllers/productController.php");
-include_once("../app/controllers/profileController.php");
 include_once("../app/controllers/errorController.php");
 include_once("../app/controllers/cartController.php");
+include_once("../app/controllers/loginController.php");
+include_once("../app/controllers/sessionController.php");
+include_once("../app/controllers/profileController.php");
 
 
 include_once("../app/config/parameters.php");

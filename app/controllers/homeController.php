@@ -1,9 +1,11 @@
 <?php
 include_once("models/Producto_DAO.php");
 include_once("models/category_DAO.php");
+include_once("models/sessionController");
 
 class homeController{
     public function index(){
+        sessionController::start_session();
         include_once("views/main.php");
     }
     public function profile(){
