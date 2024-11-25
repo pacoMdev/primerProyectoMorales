@@ -21,6 +21,20 @@ class producto_DAO{
         $conn->close();
         return $products ;
     }
+    public static function get_all_product_data_by_id($producto_id){
+        $conn = Database::connect();
+        var_dump(gettype($producto_id));
+        $sentenciaSQL="SELECT * FROM product WHERE product_id=$producto_id";
+        $stmtm = $conn->prepare($sentenciaSQL);
+        $stmtm->execute();
+        $resultado=$stmtm->get_result();
+        $products=[];
+        while ($row = $resultado->fetch_object("Producto")) {
+            array_push($products, $row);
+        }
+        $conn->close();
+        return $products ;
+    }
     /**
      * Metodo que devuelve todos los productos con X nombre de categoria
      * @param mixed $name_cat

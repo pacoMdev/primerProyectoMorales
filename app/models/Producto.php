@@ -8,18 +8,18 @@ class Producto{
     protected $price;
     protected $category_id;
     protected $date_creation;
+    public function __contstruct(){
 
-    // public function __construct($product_id, $name, $description, $imageURL, $price, $category_id, $date_creation)
-    // {
-    //     $this->$product_id = $product_id;
-    //     $this->$name = $name;
-    //     $this->$description = $description;
-    //     $this->$imageURL = $imageURL;
-    //     $this->$price = $price;
-    //     $this->$category_id = $category_id;
-    //     $this->$date_creation = $date_creation;
-    // }
-    
+    }
+    public function hidrate(array $data){
+        $this->product_id = $data["product_id"] ?? null;
+        $this->name = $data["name"] ?? null;
+        $this->description = $data["description"] ?? null;
+        $this->imageURL = $data["imageURL"] ?? null;
+        $this->price = $data["price"] ?? null;
+        $this->category_id = $data["category_id"] ?? null;
+        $this->date_creation = $data["date_creation"] ?? null;
+    }    
 
 
     /**

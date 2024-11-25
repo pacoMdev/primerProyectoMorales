@@ -22,10 +22,7 @@ class loginController{
                     sessionController::set_session_data("email", $user->getEmail());
                     sessionController::set_session_data("name", $user->getName());
                     sessionController::set_session_data("surname", $user->getSurname_1());
-                    // $_SESSION["user_id"] = $user->getUser_id();
-                    // $_SESSION["email"] = $user->getEmail();
-                    // $_SESSION["name"] = $user->getName();
-                    // $_SESSION["surname"] = $user->getSurname_1();
+
                     $noExiste=false;
                     header("Location: ?controller=home&action=home");
                 }

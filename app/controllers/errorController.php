@@ -1,6 +1,7 @@
 <?php
 class errorController{
     public function error500(){
+        $contadorProductos=count($_SESSION["cart_products"]);
         $titleErrorTitle="Error 500 - Internal Server Error";
         $errorCode="500";
         $titleErrorCode="Internal Server Error";
@@ -10,6 +11,7 @@ class errorController{
         include_once("views/errorPage.php");
     }
     public function error404Controller(){
+        $contadorProductos=count($_SESSION["cart_products"]);
         $titleErrorTitle="Error 404 - Not Found";
         $errorCode="404";
         $titleErrorCode="Not Found";

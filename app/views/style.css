@@ -186,6 +186,9 @@
     border-radius: 5px;
 }
 
+/* main */
+
+
 
 /* ERROR PAGE */
 
@@ -245,6 +248,7 @@
     text-align: center;
     background-color: var(--color-num-6);
 }
+/* perfil page */
 .avatar3{
     height: 100px;
     width: 100px;
@@ -252,4 +256,18 @@
     align-content: center;
     text-align: center;
     background-color: var(--color-num-6);
+}
+.icon-md-3{
+    fill: var(--color-num-3);
+}
+.sidebar .nav-link:hover{
+    color: var(--color-num-3);
+}
+.sidebar .nav-link.active{
+    background-color: var(--color-num-5);
+    color: var(--color-num-7);
+    border-radius: 10px;
+}
+.form-user{
+    max-width: 500px;
 }

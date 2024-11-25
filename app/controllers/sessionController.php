@@ -37,7 +37,15 @@ class sessionController{
                 $params["httponly"]
             );
         }
-
         header("Location: ?controller=home&action=home");
+    }
+    public static function save_product_cart($product){
+        if (isset($_SESSION["cart_products"])){
+            $_SESSION["cart_products"][]= $product;
+        }else{
+            $_SESSION["cart_products"]=[];
+            self::save_product_cart($product);
+        }
+        return $_SESSION["cart_products"];
     }
 }

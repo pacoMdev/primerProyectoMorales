@@ -22,6 +22,11 @@ class Users_DAO{
         $conn->close();
         return $usuarios;
     }
+    /**
+     * Summary of get_all_user_by_email
+     * @param mixed $email
+     * @return array
+     */
     public static function get_all_user_by_email($email){
         $conn = Database::connect();
         $sentenciaSQL="SELECT * FROM user WHERE email='$email'";
@@ -79,7 +84,7 @@ class Users_DAO{
         $conn = Database::connect();
         $emailUser=$usuario->getEmail();
 
-        $sentenciaSQL="UPDATE user (email, apple_id, password, phone, direccion, poblacion, ciudad, date_modification, date_creation, name, surname_1) VALUES (?, ?, ?, ?, ?, ?, ?, NOW(), NOW(), ?, ?) WHERE email='$emailUser'";
+        $sentenciaSQL="UPDATE user (email, apple_id, password, phone, direccion, poblacion, ciudad, date_modification, name, surname_1) VALUES (?, ?, ?, ?, ?, ?, ?, NOW(), NOW(), ?, ?) WHERE email='$emailUser'";
         $stmtm = $conn->prepare($sentenciaSQL);
 
         $email = $usuario->getEmail();
@@ -90,13 +95,12 @@ class Users_DAO{
         $poblacion = $usuario->getPoblacion();
         $ciudad =$usuario->getCiudad();
         $date_modification = "NOW()";
-        $date_creation = "NOW()";
         $name = $usuario->getName();
         $surname_1 = $usuario->getsurname_1();
 
 
 
-        $stmtm->bind_param("sssisssss", $email, $apple_id,  $password, $phone, $direccion, $poblacion, $ciudad, $name, $surname_1);
+        $stmtm->bind_param("sssissssss", $email, $apple_id,  $password, $phone, $direccion, $poblacion, $ciudad, $date_modification, $name, $surname_1);
         $stmtm->execute();
         $conn->close();
     }

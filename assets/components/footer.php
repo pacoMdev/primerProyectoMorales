@@ -12,27 +12,27 @@
             <div class="col-md-6 d-flex">
                 <div class="me-4">
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-white text-decoration-none">Elemento 1</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Elemento 2</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Elemento 3</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Elemento 4</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Elemento 5</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Productos y Compañia</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Proteccion de la marca</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Aviso de fraude</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Politica de cookies</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Politica de privacidad</a></li>
                     </ul>
                 </div>
                 <div>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-white text-decoration-none">Elemento 1</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Elemento 2</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Elemento 3</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Elemento 4</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Elemento 5</a></li>
+                        <li><a href="?" class="text-white text-decoration-none">Home</a></li>
+                        <li><a href="?controller=product&action=menu" class="text-white text-decoration-none">Menu</a></li>
+                        <li><a href="?" class="text-white text-decoration-none">Valores</a></li>
+                        <li><a href="?" class="text-white text-decoration-none">Horario</a></li>
+                        <li><a href="?" class="text-white text-decoration-none">Contacto</a></li>
                     </ul>
                 </div>
             </div>
 
             <!-- Lado derecho: Título -->
             <div class="col-md-6 text-end align-self-center">
-                <h5>2024, Tres Tacos</h5>
+                <h5>®2024, Tres Tacos</h5>
             </div>
         </div>
     </div>

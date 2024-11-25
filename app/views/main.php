@@ -95,7 +95,7 @@
                 <div class="collapse" id="textContent">
                     <p class="mb-0">Este es el segundo texto (aparece al hacer clic).</p>
                 </div>
-        </div>
+            </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 w-50 px-10 tx-left">
             <h1 class="tx-bs-color-5 fs-normal-56 fw-bold">Sabor intenso</h1>
