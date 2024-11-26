@@ -20,7 +20,7 @@
                         <div class="container d-flex gap-5 align-content-center">
                             <p class="fw-3 fs-3 m-0"><?= $product->getPrice() ?>€</p>
                             <div class="container d-flex gap-2">
-                                <svg class="icono-header-medium border border-circle border-2" type="button" width="25px" height="25px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <svg class="icono-header-medium border border-circle border-2" type="button" onclick="location.href='?controller=product&action=del_product&product_id=<?= $product_id ?>'" width="25px" height="25px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M6 12L18 12" class="icono-stroke-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                                 <p class="m-0">0</p>

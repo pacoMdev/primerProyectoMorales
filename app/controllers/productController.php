@@ -34,4 +34,10 @@ class productController{
         sessionController::save_product_cart($product);
         header("Location: ?controller=cart&action=resume");
     }
+    public function del_cart(){
+        sessionController::start_session();
+        $product_id = $_GET["product_id"];
+        sessionController::del_product_cart($product_id);
+        // header("Location: ?controller=cart&action=resume");
+    }
 }

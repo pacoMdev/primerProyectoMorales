@@ -18,10 +18,13 @@
         <table>
             <?php
             foreach ($cart_products as $product) {
-                $name = $product[0]->getName();
-                $description = $product[0]->getDescription();
-                $imageURL = $product[0]->getImageURL();
-                $price = $product[0]->getPrice();
+                $product_id = $product["product"][0]->getProduct_id();
+                $name = $product["product"][0]->getName();
+                $description = $product["product"][0]->getDescription();
+                $imageURL = $product["product"][0]->getImageURL();
+                $price = $product["product"][0]->getPrice();
+                $cantidad = $product["cont"];
+                $total_price = $price * $cantidad;
                 ?>
                 <thead class="table-light">
                     <th>PRODUCTO</th>
@@ -44,15 +47,15 @@
                         <td>
                             <div class="d-flex align-items-center justify-content-center gap-2">
                                 <div type="button" class="btn btn-outline-secondary btn-sm rounded-circle">
-                                    <svg width="15px" height="15px" viewBox="0 0 24 24" fill="none"
+                                    <svg width="15px" onclick="location.href='?controller=product&action=del_cart&product_id=<?= $product_id ?>'" height="15px" viewBox="0 0 24 24" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path d="M6 12L18 12" stroke="#000000" stroke-width="2" stroke-linecap="round"
                                             stroke-linejoin="round" />
                                     </svg>
                                 </div>
-                                <span>1</span>
+                                <span><?= $cantidad ?></span>
                                 <div class="btn btn-outline-secondary btn-sm rounded-circle">
-                                    <svg fill="#000000" width="15px" height="15px" viewBox="0 0 24 24"
+                                    <svg fill="#000000" onclick="location.href='?controller=product&action=add_cart&product_id=<?= $product_id ?>'" width="15px" height="15px" viewBox="0 0 24 24"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
                                             d="M13 11h7a1 1 0 0 1 0 2h-7v7a1 1 0 0 1-2 0v-7H4a1 1 0 0 1 0-2h7V4a1 1 0 0 1 2 0v7z" />
@@ -61,7 +64,7 @@
                             </div>
                         </td>
                         <td><?= $price ?>€</td>
-                        <td><?= $price ?>€</td>
+                        <td><?= $total_price ?>€</td>
                     </tr>
                 </tbody>
                 <?php
