@@ -41,7 +41,7 @@
                                 <table class="w-100 mx-auto">
                                     <tr>
                                         <td>Subtotal</td>
-                                        <td class="text-end">99.99€</td>
+                                        <td class="text-end"><?= $price_cart["subtotal"] ?>€</td>
                                     </tr>
                                     <tr>
                                         <td>Discount</td>
@@ -49,17 +49,17 @@
                                     </tr>
                                     <tr>
                                         <td>Delivery</td>
-                                        <td class="text-end">8.75€</td>
+                                        <td class="text-end"><?= $price_cart["delivery"] ?>€</td>
                                     </tr>
                                     <tr>
                                         <td>Tax (21%) included</td>
-                                        <td class="text-end">20.99€</td>
+                                        <td class="text-end"><?= $price_cart["tax"] ?>€</td>
                                     </tr>
                                     <tr>
                                         <td class="d-flex">
                                             <p class="fw-bold">TOTAL</p>(inc. IMP)
                                         </td>
-                                        <td class="text-end fw-bold">99.99€</td>
+                                        <td class="text-end fw-bold"><?= $price_cart["total_imp"] ?>€</td>
                                     </tr>
                                 </table>
                             </div>

@@ -7,10 +7,11 @@ class homeController{
     public function index(){
         sessionController::start_session();
         // $_SESSION["cart_products"]=[];
-        if(!isset($_SESSION["cart_product"])){
-            $_SESSION["cart_products"]=[];
-        }
-        $contadorProductos=count($_SESSION["cart_products"]);
+        // if(!isset($_SESSION["cart_product"])){
+        //     $_SESSION["cart_products"]=[];
+        // }
+        sessionController::start_session();
+        $contadorProductos = sessionController::cont_product_cart();
         include_once("views/main.php");
     }
     public function profile(){

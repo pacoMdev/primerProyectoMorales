@@ -70,17 +70,41 @@ class sessionController
         return $_SESSION["cart_products"];
     }
     public static function del_product_cart($product){
-        foreach ($_SESSION["cart_products"] as &$producto) {
-            if ($producto["product"][0]->getProduct_id() == $product) {
-                if ($producto["cont"] > 1){
-                    $producto["cont"]--;
+        // La propiedad & delante del $value hace que saa posible los cambios en el array
+        foreach ($_SESSION["cart_products"] as $producto => &$value) {
+            if ($value["product"][0]->getProduct_id() == $product) {
+                if ($value["cont"] > 1){
+                    $value["cont"]--;
                 }else{
-                    var_dump($producto);
-                    // falla aqui --> se deve eliminar el array del array
                     unset($_SESSION["cart_products"][$producto]);
                 }
                 break;
             }
         }
+    }
+    public static function cont_product_cart(){
+        $cont = 0;
+        if (isset($_SESSION["cart_products"])){
+            foreach($_SESSION["cart_products"] as $producto => $value){
+                $cont += $value["cont"];
+            }
+        }
+        return $cont;
+    }
+    public static function price_product_cart(){
+        $prices_total=[
+            "subtotal" => 0,
+            "delivery" => 0,
+            "tax" => 0,
+            "total_imp" => 0
+        ];
+        $tax=21;
+        foreach($_SESSION["cart_products"] as $product => $value){
+            $prices_total["subtotal"] += $value["cont"] * $value["product"][0]->getPrice();
+        }
+        $prices_total["tax"] = round($prices_total["subtotal"] / 100 * $tax, 2);
+        $prices_total["total_imp"] = round($prices_total["subtotal"] + $prices_total["tax"], 2);
+
+        return $prices_total;
     }
 }
