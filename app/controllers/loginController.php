@@ -12,7 +12,8 @@ class loginController{
             $listUsers = Users_DAO::get_all_user_data();
             $noExiste=true;
             foreach($listUsers as $user){
-                if ((strcmp($user->getEmail(), $mail)==0) && strcmp($user->getPassword(), $password)==0){
+                // cambio de verificacion de password normal a hash
+                if ((strcmp($user->getEmail(), $mail)==0) && password_verify($password, $user->getPassword())==true){
                     // El usuario existe
 
                     // Crea una nueva session
@@ -51,7 +52,7 @@ class loginController{
                 if (strcmp($password, $confirm_password)==0){
                     $arrayUser = [
                         "email"=>$email,
-                        "password"=>$password,
+                        "password"=>password_hash($password, PASSWORD_DEFAULT),
                         "name"=>$name,
                         "surname_1"=>$surname_1
                     ];
