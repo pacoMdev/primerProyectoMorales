@@ -107,4 +107,12 @@ class sessionController
 
         return $prices_total;
     }
+    public static function find_product_cart($product_id){
+        foreach($_SESSION["cart_products"] as $product => $value){
+            if ($product_id == $value["product"][0]->getProduct_id){
+                return true;
+            }
+        }
+        return false;
+    }
 }

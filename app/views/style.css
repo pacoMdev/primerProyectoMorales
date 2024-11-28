@@ -271,3 +271,10 @@
 .form-user{
     max-width: 500px;
 }
+
+/* page carrito */
+.container-contador{
+    height: 40px;
+    width: 40px;
+    background-color: var(--color-num-8);
+}

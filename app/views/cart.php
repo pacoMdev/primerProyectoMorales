@@ -114,8 +114,8 @@
                                     </div>
                                     <p class="p-0 m-0">Credit cart ordevit card</p>
                                 </button>
-                                <button type="button"
-                                    class="d-flex w-75 bg-bs-color-black border-0 rounded-pill justify-content-center align-middle py-2 text-white gap-2 fw-medium fs-6 mx-auto">
+                                <button type="button" 
+                                    class="d-flex w-75 bg-bs-color-black border-0 rounded-pill justify-content-center align-middle py-2 text-white gap-2 fw-medium fs-6 mx-auto" onclick="location.href='?controller=cart&action=submit_cart_products'">
                                     <div class="icon-color-white">
                                         <svg width="25px" height="25px" viewBox="-1.5 0 20 20" version="1.1"
                                             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -260,7 +260,7 @@
 
 
     <?php include_once("../assets/components/footer.php") ?>
-
+    <script src="../assets/js/components/script_carrito.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
         </script>
