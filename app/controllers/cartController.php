@@ -2,7 +2,6 @@
 include_once("controller/sessionController.php");
 include_once("models/producto_DAO");
 include_once("models/pedido_DAO");
-include_once("models/pedido_DAO");
 class cartController{
     public function resume(){
         sessionController::start_session();

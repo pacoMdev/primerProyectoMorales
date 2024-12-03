@@ -25,12 +25,17 @@
                                     // falta comprovar que si hay muestre con contador y eliminar
                                     if (true) {
                                         ?>
-                                        <svg class="icono-header-medium border border-circle border-2" type="button"
-                                            onclick="location.href='?controller=product&action=add_cart&product_id=<?= $product_id ?>'"
+                                        <svg class="icono-header-medium border border-circle border-2 add_product_cart" type="button" id="product_count" product-id="<?= $product_id ?>"
                                             width="25px" height="25px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                             <path
                                                 d="M13 11h7a1 1 0 0 1 0 2h-7v7a1 1 0 0 1-2 0v-7H4a1 1 0 0 1 0-2h7V4a1 1 0 0 1 2 0v7z" />
                                         </svg>
+                                        <!-- <svg class="icono-header-medium border border-circle border-2 add_product_cart" type="button"
+                                            product-id="<?= $product_id ?>" id="product_count"
+                                            width="25px" height="25px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M13 11h7a1 1 0 0 1 0 2h-7v7a1 1 0 0 1-2 0v-7H4a1 1 0 0 1 0-2h7V4a1 1 0 0 1 2 0v7z" />
+                                        </svg> -->
                                         <?php
                                     } else {
                                         ?>

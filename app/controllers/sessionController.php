@@ -66,7 +66,6 @@ class sessionController
             $_SESSION["cart_products"] = [];
             self::save_product_cart($product);
         }
-        // var_dump($_SESSION["cart_products"]);
         return $_SESSION["cart_products"];
     }
     public static function del_product_cart($product){
@@ -78,6 +77,14 @@ class sessionController
                 }else{
                     unset($_SESSION["cart_products"][$producto]);
                 }
+                break;
+            }
+        }
+    }
+    public static function del_full_product_cart($product){
+        foreach ($_SESSION["cart_products"] as $producto => &$value) {
+            if ($value["product"][0]->getProduct_id() == $product) {
+                unset($_SESSION["cart_products"][$producto]);
                 break;
             }
         }
@@ -114,5 +121,20 @@ class sessionController
             }
         }
         return false;
+    }
+    public static function datos_carrito_resume(){
+        self::start_session();
+        $cart_productos = $_SESSION["cart_products"];
+        $subtotal = 0;        
+        foreach($cart_productos as $products => $value){
+            $subtotal += $value["product"][0]->getPrice() * $value["cont"];
+        }
+        $tax = $subtotal/100*21;
+        $total_tax = $subtotal + $tax;
+        return [
+            "subtotal" => round($subtotal, 2), 
+            "tax" => round($tax, 2),
+            "total_tax" => round($total_tax, 2)
+        ];
     }
 }
