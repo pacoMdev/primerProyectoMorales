@@ -23,8 +23,9 @@
         <?= include_once("../assets/components/cardsProductsMenu.php") ?>
         
     </section>
-    <?php include_once("../assets/components/footer.php"); ?>
-    <script src="http://localhost/primerProyectoMorales/assets/js/script.js"></script>
 
+    <?php include_once("../assets/components/footer.php"); ?>
+
+    <script src="../assets/js/script.js?v=1.0"></script>
 </body>
 </html>

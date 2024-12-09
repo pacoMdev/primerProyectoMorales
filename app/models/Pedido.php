@@ -10,6 +10,12 @@ class Pedido{
     protected $subtotal;
     protected $tax;
     protected $price_total;
+    protected $name;
+    protected $surname;
+    protected $address;
+    protected $cod_postal;
+    protected $city;
+    protected $phone;
     public function __contstruct(){
 
     }
@@ -23,6 +29,12 @@ class Pedido{
         $this->subtotal = $data["subtotal"] ?? null;
         $this->tax = $data["tax"] ?? null;
         $this->price_total = $data["price_total"] ?? null;
+        $this->name = $data["name"] ?? null;
+        $this->surname = $data["surname"] ?? null;
+        $this->address = $data["address"] ?? null;
+        $this->cod_postal = $data["cod_postal"] ?? null;
+        $this->city = $data["city"] ?? null;
+        $this->phone = $data["phone"] ?? null;
     }    
 
     /**
@@ -201,6 +213,120 @@ class Pedido{
     public function setPrice_total($price_total)
     {
         $this->price_total = $price_total;
+
+        return $this;
+    }
+    /**
+     * Get the value of name
+     */ 
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set the value of name
+     *
+     * @return  self
+     */ 
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+    /**
+     * Get the value of surname
+     */ 
+    public function getSurname()
+    {
+        return $this->surname;
+    }
+
+    /**
+     * Set the value of surname
+     *
+     * @return  self
+     */ 
+    public function setSurname($surname)
+    {
+        $this->surname = $surname;
+
+        return $this;
+    }
+    /**
+     * Get the value of address
+     */ 
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * Set the value of address
+     *
+     * @return  self
+     */ 
+    public function setAddress($address)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+    /**
+     * Get the value of cod_postal
+     */ 
+    public function getCod_postal()
+    {
+        return $this->cod_postal;
+    }
+
+    /**
+     * Set the value of cod_postal
+     *
+     * @return  self
+     */ 
+    public function setCod_postal($cod_postal)
+    {
+        $this->cod_postal = $cod_postal;
+
+        return $this;
+    }
+    /**
+     * Get the value of city
+     */ 
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * Set the value of city
+     *
+     * @return  self
+     */ 
+    public function setCity($city)
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+    /**
+     * Get the value of phone
+     */ 
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * Set the value of phone
+     *
+     * @return  self
+     */ 
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
 
         return $this;
     }

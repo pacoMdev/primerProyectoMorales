@@ -45,24 +45,24 @@
                         </td>
                         <td>
                             <div class="d-flex align-items-center justify-content-center gap-1">
-                                <div type="button" class="d-flex align-items-center justify-content-center container-contador rounded-start-circle del_product_cart" product-id="<?= $product_id ?>">
+                                <button type="button" class="d-flex align-items-center justify-content-center container-contador rounded-start-circle del_product_cart border-0" product-id="<?= $product_id ?>" id="del_cart_product">
                                     <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path d="M6 12L18 12" stroke="#000000" stroke-width="2" stroke-linecap="round"
                                             stroke-linejoin="round" />
                                     </svg>
-                                </div>
+                                </button>
                                 <span class="d-flex align-items-center justify-content-center container-contador"
                                     id="cant_product"><?= $cantidad ?></span>
-                                <div type="button"
-                                    class="d-flex align-items-center justify-content-center container-contador rounded-end-circle add_product_cart"
-                                    product-id="<?= $product_id ?>" cant-prod="<?= $cantidad ?>" id="product_count">
+                                <button type="button"
+                                    class="d-flex align-items-center justify-content-center container-contador rounded-end-circle add_product_cart border-0"
+                                    product-id="<?= $product_id ?>" id="add_cart_product">
                                     <svg fill="#000000" width="20px" height="20px" viewBox="0 0 24 24"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
                                             d="M13 11h7a1 1 0 0 1 0 2h-7v7a1 1 0 0 1-2 0v-7H4a1 1 0 0 1 0-2h7V4a1 1 0 0 1 2 0v7z" />
                                     </svg>
-                                </div>
+                                </button>
                                 <div class="d-flex align-items-center justify-content-center container-contador rounded-circle del_full_product_cart"
                                     type="button" product-id="<?= $product_id ?>">
                                     <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"

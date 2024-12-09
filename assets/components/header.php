@@ -48,7 +48,8 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto gap-3 contenido-header border rounded-pill p-1 d-inline-flex">
+                <ul
+                    class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto gap-3 contenido-header border rounded-pill p-1 d-inline-flex">
                     <li class="nav-item d-inline-flex mx-auto">
                         <a class="nav-link text-center fs-6 rounded-pill px-3" aria-current="page"
                             href="?controller=product&action=menu">Menu</a>
@@ -81,7 +82,8 @@
                                     <div class="avatarH"><?= $iniciales ?></div>
                                 </div>
                             </li>
-                            <div class="collapse bg-bs-color-white rounded collapse-card-user p-3 shadow" id="collapsePerfil">
+                            <div class="collapse bg-bs-color-white rounded collapse-card-user p-3 shadow"
+                                id="collapsePerfil">
                                 <div class="collaps-container mx-auto">
                                     <!-- datos del perfil -->
                                     <div class="profile-header d-flex gap-3">
@@ -93,14 +95,16 @@
                                     </div>
                                     <!-- boton de favoritos -->
                                     <a class="d-flex gap-3 justify-content-start py-2 px-4 tx-bs-color-black text-decoration-none"
-                                        href="#">
+                                        href="?controller=profile&action=show_history_order">
                                         <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                d="M3.5 3C3.5 1.89543 4.39543 1 5.5 1H18.5C19.6046 1 20.5 1.89543 20.5 3V22C20.5 22.3612 20.3052 22.6944 19.9904 22.8715C19.6756 23.0486 19.2897 23.0422 18.981 22.8548L12 18.6157L5.01903 22.8548C4.71028 23.0422 4.32441 23.0486 4.00961 22.8715C3.6948 22.6944 3.5 22.3612 3.5 22V3ZM18.5 3L5.5 3V20.2228L11.481 16.591C11.7999 16.3974 12.2001 16.3974 12.519 16.591L18.5 20.2228V3Z"
+                                            <path fill-rule="evenodd" clip-rule="evenodd" class="icon-md-3"
+                                                d="M10.5431 1.66549C11.4491 1.16212 12.5509 1.16212 13.4569 1.66549L21.4856 6.12589C21.8031 6.30225 22 6.63685 22 7C22 7.00002 22 6.99998 22 7V16.4116C22 17.1379 21.6062 17.8072 20.9713 18.1599L12.5015 22.8653C12.2067 23.0366 11.7933 23.0366 11.4985 22.8653L3.02871 18.1599C2.39378 17.8072 2 17.1379 2 16.4116V7.00005C2.00002 6.6369 2.19691 6.30225 2.51436 6.12589L10.5431 1.66549ZM12.4856 3.41381C12.1836 3.24602 11.8164 3.24602 11.5144 3.41381L9.55918 4.50002L16.5001 8.35606L18.9409 7.00005L12.4856 3.41381ZM5.05913 7.00005L7.50005 5.64397L14.4409 9.50002L12 10.8561L5.05913 7.00005ZM13 20.3005L20 16.4116V8.69956L13 12.5884V20.3005ZM4 8.69956L11 12.5884V20.3005L4 16.4116V8.69956Z"
                                                 fill="#000000" />
                                         </svg>
-                                        <p>Tus favoritos</p>
+
+
+                                        <p>Mis pedidos</p>
                                     </a>
                                     <!-- boton de configuracion -->
                                     <a class="d-flex gap-3 justify-content-start py-2 px-4 tx-bs-color-black text-decoration-none"
@@ -150,7 +154,8 @@
                             <svg xmlns="http://www.w3.org/2000/svg" height="25px" viewBox="0 0 576 512">
                                 <path
                                     d="M0 24C0 10.7 10.7 0 24 0L69.5 0c22 0 41.5 12.8 50.6 32l411 0c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3l-288.5 0 5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5L488 336c13.3 0 24 10.7 24 24s-10.7 24-24 24l-288.3 0c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5L24 48C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
-                                <p class="bg-bs-color-5 border-cicle contador-cart" id="cart_product_count"><?= $contadorProductos; ?></p>
+                                <p class="bg-bs-color-5 border-cicle contador-cart" id="cart_product_count">
+                                    <?= $contadorProductos; ?></p>
                             </svg>
                         </a>
                     </li>

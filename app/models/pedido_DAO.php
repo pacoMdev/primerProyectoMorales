@@ -4,13 +4,13 @@ include_once("config/Connection.php");
 include_once("models/Pedido.php");
 class pedido_DAO{
 
-    public static function create_pedido($user_id, $discount_id, $subtotal, $tax, $total){
+    public static function create_pedido($user_id, $discount_id, $subtotal, $tax, $total, $name, $surname, $address, $cod_postal, $city, $phone){
         $conn = Database::connect();
 
-        $sentenciaSQL="INSERT INTO pedido (cliente_id, metodo_envio, estado, date_creation, discount_id, subtotal, tax, price_total) VALUES (?, 'en tienda', 'en proceso', NOW(), ?, ?, ?, ?)";
+        $sentenciaSQL="INSERT INTO pedido (cliente_id, metodo_envio, estado, date_creation, discount_id, subtotal, tax, price_total, name, surname, address, cod_postal, city, phone) VALUES (?, 'en tienda', 'en proceso', NOW(), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmtm = $conn->prepare($sentenciaSQL);
 
-        $stmtm->bind_param("iiddd", $user_id, $discount_id, $subtotal, $tax, $total);
+        $stmtm->bind_param("iidddsssisi", $user_id, $discount_id, $subtotal, $tax, $total, $name, $surname, $address, $cod_postal, $city, $phone);
         $stmtm->execute();
         $conn->close();
         // return $pedido_id;
@@ -19,6 +19,19 @@ class pedido_DAO{
         $conn = Database::connect();
         // MODIFICAR PARA RECOJER EL ULTIMO PEDIDO
         $sentenciaSQL="SELECT * FROM pedido  WHERE cliente_id=$user_id ORDER BY pedido_id DESC LIMIT 1";
+        $stmtm = $conn->prepare($sentenciaSQL);
+        $stmtm->execute();
+        $resultado=$stmtm->get_result();
+        $pedidoProduct=[];
+        while ($row = $resultado->fetch_object("Pedido")) {
+            array_push($pedidoProduct, $row);
+        }
+        $conn->close();
+        return $pedidoProduct ;
+    }
+    public static function get_pedidos_by_id($user_id){
+        $conn = Database::connect();
+        $sentenciaSQL="SELECT * FROM pedido  WHERE cliente_id=$user_id";
         $stmtm = $conn->prepare($sentenciaSQL);
         $stmtm->execute();
         $resultado=$stmtm->get_result();

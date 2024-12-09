@@ -37,7 +37,7 @@
                     </span>
                     Mis pedidos
                 </a>
-                <a href="?controller=profile&action=contacta" class="nav-link px-4 py-3 tx-bs-color-3">
+                <a href="?controller=profile&action=contacta" class="nav-link px-4 py-3 tx-bs-color-3 active">
                     <span><svg width="25px" height="25px" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path class="icon-md-3" fill-rule="evenodd" clip-rule="evenodd"
@@ -45,8 +45,9 @@
                         </svg></span>
                     Contacta
                 </a>
-                <a href="?controller=profile&action=show_profile" class="nav-link active px-4 py-3 tx-bs-color-3">
-                    <span><svg height="25px" width="25px" version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg"
+                <a href="?controller=profile&action=show_profile" class="nav-link px-4 py-3 tx-bs-color-3">
+                    <span>
+                        <svg height="25px" width="25px" version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" xml:space="preserve">
                             <path class="icon-md-3" d="M29,17.6c-1.2-0.4-2-1-2-1.6s0.8-1.3,2-1.6c0.5-0.2,0.8-0.7,0.7-1.2c-0.4-1.8-1-3.4-2.1-4.9c-0.3-0.4-0.8-0.6-1.3-0.3
     c-1.1,0.6-2.2,0.7-2.6,0.3c-0.4-0.4-0.3-1.5,0.3-2.6c0.2-0.5,0.1-1-0.3-1.3c-1.5-1-3.2-1.7-4.9-2.1c-0.5-0.1-1,0.2-1.2,0.7
@@ -57,7 +58,8 @@
     c0.4-1.2,1-2,1.6-2s1.3,0.8,1.6,2c0.1,0.4,0.5,0.7,1,0.7c0.1,0,0.1,0,0.2,0c1.8-0.4,3.4-1,4.9-2.1c0.4-0.3,0.6-0.8,0.3-1.3
     c-0.6-1.1-0.7-2.2-0.3-2.6c0.4-0.4,1.5-0.3,2.6,0.3c0.5,0.2,1,0.1,1.3-0.3c1-1.5,1.7-3.2,2.1-4.9C29.8,18.3,29.5,17.8,29,17.6z
      M16,23c-3.9,0-7-3.1-7-7s3.1-7,7-7s7,3.1,7,7S19.9,23,16,23z" />
-                        </svg></span>
+                        </svg>
+                    </span>
                     Tu configuracion
                 </a>
             </div>
