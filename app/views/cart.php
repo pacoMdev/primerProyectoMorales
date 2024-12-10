@@ -32,11 +32,12 @@
                         <div class="container border bg-bs-color-white border-0 rounded p-4 d-flex flex-column gap-2">
                             <div class="container">
                                 <p class="fs-4 fw-bold">Resume</p>
-                                <div class="container d-flex gap-2">
+                                <div class="container d-flex gap-2" id="input_check_promotion">
+                                    <!-- despues de aceptar el codigo devera de deshabilitar el input y el button -->
                                     <input type="text" placeholder="Enter the promo code"
-                                        class=" form-control fs-6 fw-lighter px-1 w-75">
+                                        class=" form-control fs-6 fw-lighter px-1 w-75" id="promotion_full_code">
                                     <button type="button"
-                                        class="btn btn-success bg-bs-color-7 border-0 text-secondary fw-light">Apply</button>
+                                        class="btn btn-success bg-bs-color-7 border-0 text-secondary fw-light" id="check_promotion">Apply</button>
                                 </div>
                             </div>
                             <div class="container w-100">
@@ -47,11 +48,15 @@
                                     </tr>
                                     <tr>
                                         <td>Discount</td>
-                                        <td class="text-end">0€</td>
+                                        <td class="text-end"><div class="container m-0  p-0">
+                                            <p class="m-0" id="percent_discount">20%</p>
+                                            <p class="m-0 fw-bold" id="cod_discount">ABCD</p>
+                                        </div>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Delivery</td>
-                                        <td class="text-end"><?= $price_cart["delivery"] ?>€</td>
+                                        <td class="text-end">FREE</td>
                                     </tr>
                                     <tr>
                                         <td>Tax (21%) included</td>

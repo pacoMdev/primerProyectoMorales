@@ -174,3 +174,49 @@ document.querySelectorAll('.del_full_product_cart').forEach(div => {
         }
     });
 });
+document.querySelectorAll("#input_check_promotion").forEach(genDiv =>{
+    genDiv.querySelector("#check_promotion").addEventListener("click", async function(){
+        const promotion_code = genDiv.querySelector("#promotion_full_code").value
+        if (promotion_code!=""){
+            try {
+                // Realizar llamada al controlador
+                console.log("antes")
+                const response = await fetch(`?controller=cart&action=apply_discount&promotion_code=${promotion_code}`, {
+                    method: 'GET',
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                console.log("despues")
+                console.log(response)
+                // Verificar si la respuesta es exitosa
+                if (!response.ok) throw new Error(`Error en la solicitud: ${response.status}`);
+
+                const result = await response.json(); // Leer directamente como JSON
+                // console.log(result)
+                console.log('Promocion validada correctamente:', result);
+
+                if (result.success) {
+                    // datos carrito
+                    console.log ("Aplicando promocion: " + promotion_code)
+                    // Añade la promocion y deshabilita el input y boton
+                    genDiv.querySelector("#cod_discount").innerText = result.name_promotion
+                    genDiv.querySelector("#percent_discount").innerText = result.porcentaje
+                    genDiv.querySelector("#promotion_full_code").disabled;
+                    genDiv.querySelector("#check_promotion").disabled;
+
+
+                    document.getElementById("resume_subtotal").textContent = result.subtotal + "€";
+                    document.getElementById("resume_tax").textContent = result.tax + "€";
+                    document.getElementById("resume_total_tax").textContent = result.total_tax_discount + "€";
+                    console.log("Promocion aplicada correctamente")
+                }
+            } catch (error) {
+                console.log("Ocurrio un error" + error)
+            }
+        }else{
+            console.log("no hay promocion escrita")
+            console.log (promotion_code)
+            console.log(promotion_code.lenght)
+        }
+    })
+
+});

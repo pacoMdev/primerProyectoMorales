@@ -2,25 +2,30 @@
 include_once("controller/sessionController.php");
 include_once("models/producto_DAO");
 include_once("models/pedido_DAO.php");
-class cartController{
-    public function resume(){
+include_once("models/Promocion.php");
+include_once("models/promocion_dao.php");
+class cartController
+{
+    public function resume()
+    {
         sessionController::start_session();
-        if (isset($_SESSION["cart_products"])){
+        if (isset($_SESSION["cart_products"])) {
             $contadorProductos = sessionController::cont_product_cart();
             $price_cart = sessionController::price_product_cart();
-            $cart_products=$_SESSION["cart_products"];
-        }else{
-            $contadorProductos=0;
+            $cart_products = $_SESSION["cart_products"];
+        } else {
+            $contadorProductos = 0;
         }
         include_once("views/cart.php");
     }
-    public function checkout(){
+    public function checkout()
+    {
         sessionController::start_session();
         sessionController::protection_session();
 
         $contadorProductos = sessionController::cont_product_cart();
         $price_cart = sessionController::price_product_cart();
-        $cart_products=$_SESSION["cart_products"];
+        $cart_products = $_SESSION["cart_products"];
 
         // Datos de relleno por session a form
         $name = (isset($_SESSION["name"])) ? $_SESSION["name"] : "";
@@ -33,9 +38,10 @@ class cartController{
 
         include_once("views/checkout.php");
     }
-    public function submit_cart_products(){
+    public function submit_cart_products()
+    {
         sessionController::start_session();
-        
+
         // Datos del formulario y de session
         $price_cart = sessionController::price_product_cart();
         $user_id = $_SESSION["user_id"];
@@ -56,7 +62,7 @@ class cartController{
         $last_pedido = pedido_DAO::get_last_pedido($user_id);
         $pedido_id = $last_pedido[0]->getPedido_id();
         // por cada producto del pedido lo inserta como producto pedido
-        foreach($_SESSION["cart_products"] as $producto => $value){
+        foreach ($_SESSION["cart_products"] as $producto => $value) {
             $producto_id = $value["product"][0]->getProduct_id();
             $cantidad = $value["cont"];
             $precio = $value["product"][0]->getPrice();
@@ -66,5 +72,37 @@ class cartController{
         unset($_SESSION["cart_products"]);
         // var_dump($last_pedido);
         header("Location: ?controller=cart&action=resume");
+    }
+    public function apply_discount($promotion_code)
+    {
+        $promotion_code = $_GET["promotion_code"];
+        sessionController::start_session();
+        // Obtiene todas las promociones de DB por promotion_code
+        $all_promotion_code = promocion_DAO::get_all_data_promotion_by_code($promotion_code);
+        if (count($all_promotion_code) == 1) {
+            $_SESSION["promotion_code"] = $all_promotion_code[0]->getPromotion_code();
+
+            $data = [
+                "success" => true,
+                "name_promotion" => $all_promotion_code[0]->getName_promotion(),
+                "porcentaje" => $all_promotion_code[0]->getPorcentaje(),
+                "subtotal" => 0,
+                "tax" => 0,
+                "total_tax_discount" => 0
+            ];
+            $tax = 21;
+            foreach ($_SESSION["cart_products"] as $product => $value) {
+                $data["subtotal"] += $value["cont"] * $value["product"][0]->getPrice();
+            }
+            $data["tax"] = round($data["subtotal"] / 100 * $tax, 2);
+            $total_tax = round($data["subtotal"] + $data["tax"], 2);
+            // lo deja con el descuento aplicado
+            $data["total_tax_discount"] = round($total_tax / 100 * intval($data["porcentaje"]), 2);
+
+            ob_clean();
+            header('Content-Type: application/json');
+            echo json_encode(['success' => true, 'name_promotion' => $data["name_promotion"], "porcentaje" => $data["porcentaje"], 'subtotal' => $data["subtotal"], "tax" => $data["tax"], "total_tax_discount" => $data["total_tax_discount"]]);
+            exit;
+        }
     }
 }
