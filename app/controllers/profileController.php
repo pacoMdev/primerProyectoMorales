@@ -16,9 +16,9 @@ class profileController{
     }
     public function show_history_order(){
         sessionController::protection_session();
-        $contadorProductos = sessionController::cont_product_cart();
         $user_id = $_SESSION["user_id"];
         $data_history = pedido_DAO::get_pedidos_by_id($user_id);
+        $contadorProductos = count($data_history);
 
         include_once("views/history_order.php");
     }

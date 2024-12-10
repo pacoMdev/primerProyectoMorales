@@ -8,15 +8,17 @@
 
 <body>
     <form action="?controller=profile&action=update_data" method="POST" class="p-4 form-user">
-        <!-- Campo de Nombre -->
-        <div class="mb-3">
-            <label for="name" class="form-lavel">Nombre:</label>
-            <input type="text" class="form-control" id="name" name="name" placeholder="Admin" class=" form-control">
-        </div>
-        <!-- Campo de Apellido -->
-        <div class="mb-3">
-            <label for="surname">Apellido:</label>
-            <input type="text" class="form-control" id="surname" name="surname" placeholder="THOR">
+        <div class="d-flex">
+            <!-- Campo de Nombre -->
+            <div class="mb-3 w-50">
+                <label for="name" class="form-lavel">Nombre:</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Admin" class=" form-control">
+            </div>
+            <!-- Campo de Apellido -->
+            <div class="mb-3 w-50">
+                <label for="surname">Apellido:</label>
+                <input type="text" class="form-control" id="surname" name="surname" placeholder="THOR">
+            </div>
         </div>
         <!-- Campo de Email -->
         <div class="mb-3">
@@ -36,25 +38,29 @@
             <input type="password" class="form-control" id="confirm-password" name="confirm_password"
                 placeholder="admin">
         </div>
-        <!-- Confirmar Phone -->
-        <div class="mb-3">
-            <label for="phone">Telefono:</label>
-            <input type="text" class="form-control" id="phone" name="phone" placeholder="">
+        <div class="d-flex">
+            <!-- Confirmar Phone -->
+            <div class="mb-3 w-50">
+                <label for="phone">Telefono:</label>
+                <input type="text" class="form-control" id="phone" name="phone" placeholder="">
+            </div>
+            <!-- Confirmar Direccion -->
+            <div class="mb-3 w-50">
+                <label for="direccion">Direccion:</label>
+                <input type="text" class="form-control" id="direccion" name="direccion" placeholder="">
+            </div>
         </div>
-        <!-- Confirmar Direccion -->
-        <div class="mb-3">
-            <label for="direccion">Direccion:</label>
-            <input type="text" class="form-control" id="direccion" name="direccion" placeholder="">
-        </div>
-        <!-- Confirmar Poblacion -->
-        <div class="mb-3">
-            <label for="poblacion">Poblacion:</label>
-            <input type="text" class="form-control" id="poblacion" name="poblacion" placeholder="">
-        </div>
-        <!-- Confirmar Ciudad -->
-        <div class="mb-3">
-            <label for="ciudad">Ciudad:</label>
-            <input type="text" class="form-control" id="ciudad" name="ciudad" placeholder="">
+        <div class="d-flex">
+            <!-- Confirmar Poblacion -->
+            <div class="mb-3 w-50">
+                <label for="poblacion">Poblacion:</label>
+                <input type="text" class="form-control" id="poblacion" name="poblacion" placeholder="">
+            </div>
+            <!-- Confirmar Ciudad -->
+            <div class="mb-3 w-50">
+                <label for="ciudad">Ciudad:</label>
+                <input type="text" class="form-control" id="ciudad" name="ciudad" placeholder="">
+            </div>
         </div>
         <!-- Botón de Actualizar -->
         <div class="d-grid">

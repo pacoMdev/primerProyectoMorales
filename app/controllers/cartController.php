@@ -60,7 +60,7 @@ class cartController{
             $producto_id = $value["product"][0]->getProduct_id();
             $cantidad = $value["cont"];
             $precio = $value["product"][0]->getPrice();
-            $precio_total = $value["product"][0]->getPrice() * $value["cant"];
+            $precio_total = $value["product"][0]->getPrice() * $value["cont"];
             pedido_DAO::add_pedido_producto($pedido_id, $producto_id, $cantidad, $precio, $precio_total);
         }
         unset($_SESSION["cart_products"]);
