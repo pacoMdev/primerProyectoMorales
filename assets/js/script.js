@@ -180,12 +180,12 @@ document.querySelectorAll("#input_check_promotion").forEach(genDiv =>{
         if (promotion_code!=""){
             try {
                 // Realizar llamada al controlador
-                console.log("antes")
+                console.log("antes de llamar a promotion_code")
                 const response = await fetch(`?controller=cart&action=apply_discount&promotion_code=${promotion_code}`, {
                     method: 'GET',
                     headers: { 'Content-Type': 'application/json' }
                 });
-                console.log("despues")
+                console.log("despues de la llamada")
                 console.log(response)
                 // Verificar si la respuesta es exitosa
                 if (!response.ok) throw new Error(`Error en la solicitud: ${response.status}`);
@@ -198,10 +198,10 @@ document.querySelectorAll("#input_check_promotion").forEach(genDiv =>{
                     // datos carrito
                     console.log ("Aplicando promocion: " + promotion_code)
                     // Añade la promocion y deshabilita el input y boton
-                    genDiv.querySelector("#cod_discount").innerText = result.name_promotion
-                    genDiv.querySelector("#percent_discount").innerText = result.porcentaje
-                    genDiv.querySelector("#promotion_full_code").disabled;
-                    genDiv.querySelector("#check_promotion").disabled;
+                    document.getElementById("cod_discount").textContent = promotion_code
+                    document.getElementById("percent_discount").textContent = result.porcentaje + "%";
+                    document.getElementById("promotion_full_code").disabled = true;
+                    document.getElementById("check_promotion").disabled = true;
 
 
                     document.getElementById("resume_subtotal").textContent = result.subtotal + "€";

@@ -14,18 +14,7 @@
 <body>
     <div class="p-4 bg-bs-color-white rounded">
         <h1 class="fs-4 mb-4" id="cont_carrito_top">Tu carrito (<?= $contadorProductos; ?>)</h1>
-            <?php
-            foreach ($data_history as $order => $value) {
-                $pedido_id = $value->getPedido_id();
-                $name = $value->getName();
-                $surname = $value->getSurname();
-                $met_envio = $value->getMetodo_envio();
-                $date_order = $value->getDate_creation();
-                $subtotal = $value->getSubtotal();
-                $tax = $value->getTax();
-                $price_total = $value->getPrice_total();
-                ?>
-                <table id="table_product" product-id="<?= $product_id ?>">
+        <table id="table_product" >
                 <thead class="table-light">
                     <th>PEDIDO ID</th>
                     <th>NAME</th>
@@ -36,6 +25,18 @@
                     <th>TAX</th>
                     <th>TOTAL_TAX</th>
                 </thead>
+        <?php
+        foreach ($data_history as $order => $value) {
+            $pedido_id = $value->getPedido_id();
+            $name = $value->getName();
+            $surname = $value->getSurname();
+            $met_envio = $value->getMetodo_envio();
+            $date_order = $value->getDate_creation();
+            $subtotal = $value->getSubtotal();
+            $tax = $value->getTax();
+            $price_total = $value->getPrice_total();
+        ?>
+            
                 <tbody class="border-top">
                     <tr>
                         <td id="pedido_id"><?= $pedido_id ?></td>
@@ -48,8 +49,8 @@
                         <td id="total_price_product"><?= $price_total ?>€</td>
                     </tr>
                 </tbody>
-                </table>
-            <?php } ?>
+                <?php } ?>
+            </table>
     </div>
 </body>
 

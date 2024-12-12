@@ -23,6 +23,12 @@ class loginController{
                     sessionController::set_session_data("email", $user->getEmail());
                     sessionController::set_session_data("name", $user->getName());
                     sessionController::set_session_data("surname", $user->getSurname_1());
+                    
+                    // check del admin
+                    $is_admin=Users_DAO::check_admin($user->getUser_id());
+                    if ($is_admin){
+                        sessionController::set_session_data("is_admin", 1);
+                    }
 
                     $noExiste=false;
                     header("Location: ?controller=home&action=home");

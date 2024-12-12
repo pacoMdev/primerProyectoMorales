@@ -116,4 +116,19 @@ class Users_DAO{
         $stmtm->execute();
         $conn->close();
     }
+
+    public static function check_admin($user_id){
+        $conn = Database::connect();
+        $sentenciaSQL="SELECT * FROM administrator WHERE user_id=$user_id";
+        $stmtm = $conn->prepare($sentenciaSQL);
+        $stmtm->execute();
+        $result=$stmtm->get_result();
+        $conn->close();
+        // comprueva que hay un resultado
+        if ($result->num_rows === 1){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

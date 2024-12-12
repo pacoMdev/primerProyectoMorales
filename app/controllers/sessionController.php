@@ -99,8 +99,14 @@ class sessionController
         return $cont;
     }
     public static function price_product_cart(){
+        sessionController::start_session();
+        $percent_discount = $_SESSION["promotion_discount"];
+        $promotion_code = $_SESSION["promotion_code"];
+        $promotion_id = $_SESSION["promotion_id"];
         $prices_total=[
+            "promotion_id" => 0,
             "subtotal" => 0,
+            "promotion_code" => 0,
             "delivery" => 0,
             "tax" => 0,
             "total_imp" => 0
@@ -109,8 +115,12 @@ class sessionController
         foreach($_SESSION["cart_products"] as $product => $value){
             $prices_total["subtotal"] += $value["cont"] * $value["product"][0]->getPrice();
         }
-        $prices_total["tax"] = round($prices_total["subtotal"] / 100 * $tax, 2);
-        $prices_total["total_imp"] = round($prices_total["subtotal"] + $prices_total["tax"], 2);
+        $tax = round($prices_total["subtotal"] / 100 * $tax, 2);
+        $price_total = round($prices_total["subtotal"] + $prices_total["tax"], 2);
+        $prices_total["promotion_id"] = $promotion_id;
+        $prices_total["promotion_code"] = $promotion_code;
+        $prices_total["tax"] = $tax;
+        $prices_total["total_imp"] = round($price_total-($price_total/100*$percent_discount), 2);
 
         return $prices_total;
     }

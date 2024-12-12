@@ -60,11 +60,14 @@
                 </tr>
                 <tr>
                     <td>Discount</td>
-                    <td class="text-end">0€</td>
+                    <td class="text-end">
+                        <p class="m-0"><?= $percent_discount ?>%</p>
+                        <p class="m-0"><?= $cod_discount ?></p>
+                    </td>
                 </tr>
                 <tr>
                     <td>Delivery</td>
-                    <td class="text-end"><?= $price_cart["delivery"] ?>€</td>
+                    <td class="text-end">FREE</td>
                 </tr>
                 <tr>
                     <td>Tax (21%) included</td>

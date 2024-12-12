@@ -2,6 +2,7 @@
 include_once("models/Producto_DAO.php");
 include_once("models/category_DAO.php");
 include_once("models/sessionController");
+include_once("../models/User_DAO.php");
 
 class homeController{
     public function index(){
@@ -12,6 +13,7 @@ class homeController{
         // }
         sessionController::start_session();
         $contadorProductos = sessionController::cont_product_cart();
+        // 
         include_once("views/main.php");
     }
     public function profile(){

@@ -1,5 +1,6 @@
 <?php
 include_once("controller/sessionController.php");
+include_once("../models/User_DAO.php");
 class errorController{
     public function error500(){
         $contadorProductos = sessionController::cont_product_cart();
@@ -8,7 +9,7 @@ class errorController{
         $titleErrorCode="Internal Server Error";
         $descriptionError="Oops! Something went wrong on our end. <br>
             Please try again later or contact support if the issue persists.";
-
+        
         include_once("views/errorPage.php");
     }
     public function error404Controller(){
@@ -19,7 +20,7 @@ class errorController{
         $errorController = $_GET["controllerName"];
         $descriptionError="El controlador solicitado (" . $errorController . ") no se ha encontrado en el servidor. <br>
             Es posible que la URL esté mal escrita o que el controlador no exista.";
-
+        
         include_once("views/errorPage.php");
     }
 }

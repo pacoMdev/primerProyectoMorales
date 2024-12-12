@@ -1,7 +1,7 @@
 <?php
 class Promocion{
     protected $promotion_id;
-    protected $nameDiscount;
+    protected $name_discount;
     protected $description;
     protected $date_ini;
     protected $date_fin;
@@ -15,7 +15,7 @@ class Promocion{
     }
     public function hidrate(array $data){
         $this->promotion_id = $data["promotion_id"] ?? null;
-        $this->nameDiscount = $data["nameDiscount"] ?? null;
+        $this->name_discount = $data["name_discount"] ?? null;
         $this->description = $data["description"] ?? null;
         $this->date_ini = $data["date_ini"] ?? null;
         $this->date_fin = $data["date_fin"] ?? null;
@@ -146,21 +146,21 @@ class Promocion{
     }
 
     /**
-     * Get the value of nameDiscount
+     * Get the value of name_discount
      */ 
-    public function getNameDiscount()
+    public function getName_discount()
     {
-        return $this->nameDiscount;
+        return $this->name_discount;
     }
 
     /**
-     * Set the value of nameDiscount
+     * Set the value of name_discount
      *
      * @return  self
      */ 
-    public function setNameDiscount($nameDiscount)
+    public function setName_discount($name_discount)
     {
-        $this->nameDiscount = $nameDiscount;
+        $this->name_discount = $name_discount;
 
         return $this;
     }

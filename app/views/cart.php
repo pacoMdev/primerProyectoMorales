@@ -49,8 +49,8 @@
                                     <tr>
                                         <td>Discount</td>
                                         <td class="text-end"><div class="container m-0  p-0">
-                                            <p class="m-0" id="percent_discount">20%</p>
-                                            <p class="m-0 fw-bold" id="cod_discount">ABCD</p>
+                                            <p class="m-0" id="percent_discount">0%</p>
+                                            <p class="m-0 fw-bold" id="cod_discount"></p>
                                         </div>
                                         </td>
                                     </tr>
