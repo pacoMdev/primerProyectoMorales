@@ -20,23 +20,51 @@
                 <input type="text" class="form-control" id="surname" name="surname" placeholder="THOR">
             </div>
         </div>
-        <!-- Campo de Email -->
-        <div class="mb-3">
-            <label for="email">Email:</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="admin@admin.com" disabled>
+        <div class="d-flex">
+            <!-- Campo de Email -->
+            <div class="mb-3 w-50">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="admin@admin.com" disabled>
+            </div>
+            <!-- Button trigger modal -->
+             <div class="mb-3 w-50">
+                <label for="change_password">Change password</label>
+                 <button type="button" class="w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                   Cambio de contraseña  
+                 </button>
+             </div>
         </div>
-        <!-- Campo de Contraseña -->
-        <div class="mb-3">
-            <label for="password">Introduce una contraseña:</label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="admin">
-            <a href="#" class="text-decoration-none text-danger mt-2 d-block">Mi contraseña</a>
-
-        </div>
-        <!-- Confirmar Contraseña -->
-        <div class="mb-3">
-            <label for=" confirm-password">Introduce la misma contrsaseña:</label>
-            <input type="password" class="form-control" id="confirm-password" name="confirm_password"
-                placeholder="admin">
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Cambio de contraseña</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- auth_code -->
+                        <div class="mb-3">
+                            <label for="phone">Contraseña:</label>
+                            <input type="text" class="form-control" id="password1" name="password1" placeholder="">
+                        </div>
+                        <!-- Confirmar password -->
+                        <div class="mb-3">
+                            <label for="phone">Contraseña:</label>
+                            <input type="text" class="form-control" id="password1" name="password1" placeholder="">
+                        </div>
+                        <!-- Confirmar password2 -->
+                        <div class="mb-3">
+                            <label for="direccion">Repite contraseña:</label>
+                            <input type="text" class="form-control" id="password2" name="password2" placeholder="">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary">Change password</button>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="d-flex">
             <!-- Confirmar Phone -->
