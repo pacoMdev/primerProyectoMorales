@@ -16,20 +16,21 @@
 
 <body>
     <?= include_once("../assets/components/header.php"); ?>
-
-    <section class="bg-bs-color-8 w-100 py-5">
-        <div class="container">
-            <div class="row gx-3">
-                <div class="col-12 col-lg-5 py-1">
-                <?= include_once("../assets/components/formCheckout.php") ?>
-
-                </div>
-                <div class="col-12 col-lg-7 py-1">
-                    <?php include_once("../assets/components/tableCheckOut.php"); ?>
+    <main>
+        <section class="bg-bs-color-8 w-100 py-5">
+            <div class="container">
+                <div class="row gx-3">
+                    <div class="col-12 col-lg-5 py-1">
+                    <?= include_once("../assets/components/formCheckout.php") ?>
+    
+                    </div>
+                    <div class="col-12 col-lg-7 py-1">
+                        <?php include_once("../assets/components/tableCheckOut.php"); ?>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
     <?= include_once("../assets/components/footer.php"); ?>
 
     <script src="http://localhost/primerProyectoMorales/assets/js/script.js"></script>

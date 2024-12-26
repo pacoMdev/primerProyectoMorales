@@ -18,34 +18,36 @@
     <?php
     include_once("../assets/components/header.php");
     ?>
-    <section class="row w-100 h-100 p-0 m-0 d-flex">
-        <div class="col-md-3 col-lg-2 sidebar border-end">
-            <div class="profile-header gap-3 text-center d-flex flex-column gap-4 border-bottom p-3">
-                <div class="avatar3 mx-auto fs-1"><?= $iniciales ?></div>
-                <div>
-                    <h5 class="fw-semibold fs-6"><?= $name . " " . $surname ?></h5>
-                    <p class="fw-light tx-bs-color-3"><?= $email ?></p>
+    <main>
+        <section class="row w-100 h-100 p-0 m-0 d-flex">
+            <div class="col-md-3 col-lg-2 sidebar border-end">
+                <div class="profile-header gap-3 text-center d-flex flex-column gap-4 border-bottom p-3">
+                    <div class="avatar3 mx-auto fs-1"><?= $iniciales ?></div>
+                    <div>
+                        <h5 class="fw-semibold fs-6"><?= $name . " " . $surname ?></h5>
+                        <p class="fw-light tx-bs-color-3"><?= $email ?></p>
+                    </div>
+                </div>
+                <div class="nav flex-column">
+                    <button type="button" class="nav-link px-4 py-3 tx-bs-color-3" id="btnCreate">
+                        Create
+                    </button>
+                    <button type="button" class="nav-link px-4 py-3 tx-bs-color-3 active" id="btnRead">
+                        Read
+                    </button>
+                    <button type="button" class="nav-link px-4 py-3 tx-bs-color-3" id="btnLogHistory">
+                        Log History
+                    </button>
                 </div>
             </div>
-            <div class="nav flex-column">
-                <button type="button" class="nav-link px-4 py-3 tx-bs-color-3" id="btnCreate">
-                    Create
-                </button>
-                <button type="button" class="nav-link px-4 py-3 tx-bs-color-3 active" id="btnRead">
-                    Read
-                </button>
-                <button type="button" class="nav-link px-4 py-3 tx-bs-color-3" id="btnLogHistory">
-                    Log History
-                </button>
+            <div class="col-md-9 col-lg-10 main-content">
+                <h1 class="p-3 fw-semibold fs-3">Admin panel</h1>
+                <div id="container_data_admin">
+    
+                </div>
             </div>
-        </div>
-        <div class="col-md-9 col-lg-10 main-content">
-            <h1 class="p-3 fw-semibold fs-3">Admin panel</h1>
-            <div id="container_data_admin">
-
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <?php include_once("../assets/components/footer.php") ?>
 

@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -32,7 +31,7 @@
                 </thead>
                 <tbody class="border-top">
                     <tr>
-                        <td class="py-3">
+                        <td class="py-3 w-75">
                             <div class="d-flex align-items-center">
                                 <div class="">
                                     <img src="<?= image . $imageURL; ?>" alt="imagen del producto" class="img-fluid me-3 object-fit-cover bg-bs-color-8 rounded" height="150px" width="150px">
@@ -61,7 +60,7 @@
                 <tr>
                     <td>Discount</td>
                     <td class="text-end">
-                        <p class="m-0"><?= $percent_discount ?>%</p>
+                        <p class="m-0"><?= $percent_discount ?></p>
                         <p class="m-0"><?= $cod_discount ?></p>
                     </td>
                 </tr>

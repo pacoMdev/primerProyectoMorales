@@ -15,14 +15,15 @@
 </head>
 <body>
     <?php include_once("../assets/components/header.php"); ?>
-
-    <section class="container d-flex flex-column">
-        <div class="contain">
-            <h1 class="fw-bold border-bottom border-danger border-5 d-inline-flex">MENU</h1>
-        </div>
-        <?= include_once("../assets/components/cardsProductsMenu.php") ?>
-        
-    </section>
+    <main>
+        <section class="container d-flex flex-column">
+            <div class="contain">
+                <h1 class="fw-bold border-bottom border-danger border-5 d-inline-flex">MENU</h1>
+            </div>
+            <?= include_once("../assets/components/cardsProductsMenu.php"); ?>
+            
+        </section>
+    </main>
 
     <?php include_once("../assets/components/footer.php"); ?>
 

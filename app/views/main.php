@@ -16,8 +16,8 @@
         // session_start();
     ?>
     <?php include_once("../assets/components/header.php") ?>
-    <section id="carouselExampleCaptions" class="carousel slide">
-        <div class="carousel-indicators">
+    <section id="carouselExampleCaptions" class="carousel slide" >
+        <div class="carousel-indicators" style="bottom: 30px;">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
                 aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
@@ -29,7 +29,7 @@
             <div class="carousel-item active">
                 <img src="<?= image . "delicious-tacos.webp"; ?>" class="d-block w-100 object-fit-cover" alt="Plato de tacos"
                     height="650px">
-                <div class="carousel-caption d-none d-md-block">
+                <div class="carousel-caption d-none d-md-block" style="bottom: 40px;">
                     <h5>First slide label</h5>
                     <p>Some representative placeholder content for the first slide.</p>
                 </div>
@@ -37,7 +37,7 @@
             <div class="carousel-item">
                 <img src="<?= image . "delicious-nachos.webp"; ?>" class="d-block w-100 object-fit-cover" alt="Plato de nachos"
                     height="650px">
-                <div class="carousel-caption d-none d-md-block">
+                <div class="carousel-caption d-none d-md-block" style="bottom: 40px;">
                     <h5>Second slide label</h5>
                     <p>Some representative placeholder content for the second slide.</p>
                 </div>
@@ -45,23 +45,22 @@
             <div class="carousel-item">
                 <img src="<?= image . "delicious-burritos.webp"; ?>" class="d-block w-100 object-fit-cover" alt="Plato de burritos"
                     height="650px">
-                <div class="carousel-caption d-none d-md-block">
+                <div class="carousel-caption d-none d-md-block" style="bottom: 40px;">
                     <h5>Third slide label</h5>
                     <p>Some representative placeholder content for the third slide.</p>
                 </div>
             </div>
         </div>
     </section>
-    <section class="container px-4 text-center p-4">
-        <div class="row justify-content-between">
+    <section class="text-center m-0 p-0 w-100 rounded-top-2" style="position:relative; bottom:20px;">
+        <div class="row justify-content-between p-5 w-100">
             <h2 class="border-bottom border-4 border-danger w-auto fw-bold">Productos destacados</h2>
-            <a class="d-flex align-items-center justify-content-center nav-link w-auto border rounded-pill py-1 px-4 border-color-7 icon-medium-3 tx-bs-color-3 gap-2" href="?controller=home&action=menu">
+            <a type="button" class="d-flex align-items-center justify-content-center nav-link w-auto border rounded-pill py-1 px-4 border-color-7 icon-medium-3 tx-bs-color-3 gap-2" href="?controller=product&action=menu">
                 <p class="align-center m-0">ver todo</p>
                 <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 320 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
             </a>
         </div>
-        <div class="row row-col-3 gap-4 p-4 justify-content-center">
-            <?php include("../assets/components/cardProductDestacado.php")?>
+        <div class="row row-col-3 gap-4 p-4 justify-content-center w-100">
             <?php include("../assets/components/cardProductDestacado.php")?>
             <?php include("../assets/components/cardProductDestacado.php")?>
             <?php include("../assets/components/cardProductDestacado.php")?>
@@ -82,7 +81,7 @@
             <h1 class=" fs-88 fw-bold">Frescos y preparados en el momento</h1>
         </div>
     </section>
-    <section class="row row-col-3 w-100 m-0 text-center bg-bs-color-8 justify-content-center">
+    <section class="row row-col-3 m-0 text-center bg-bs-color-8 justify-content-center">
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 w-50 px-10">
             <div class="collapsible-container" data-bs-toggle="collapse" data-bs-target="#textContent">
                 <div class="d-flex w-100 justify-content-between">
@@ -97,7 +96,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 w-50 px-10 tx-left">
+        <div class="col-12 col-sm-3 col-md-4 col-lg-3 w-50 px-10 tx-left">
             <h1 class="tx-bs-color-5 fs-normal-56 fw-bold">Sabor intenso</h1>
             <p class="tx-bs-color-3 ts-1"> En Tres Tacos, nos enorgullece ofrecer una experiencia gastronómica única basada en la calidad y frescura de nuestros productos. Todos nuestros ingredientes son 100% naturales y cuidadosamente seleccionados, asegurando que cada plato esté lleno de sabor auténtico.</p>
         </div>

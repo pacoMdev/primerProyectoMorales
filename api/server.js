@@ -1,27 +1,15 @@
-const express = require("express")
-const db = require("./db")
-const app = express()
-const PORT = 3000
+const express = require("express");
+const app = express();
 
+//nos ayuda a analizar el cuerpo de la solicitud POST
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
-app.arguments(express.json())
+//cargamos el archivo de rutas
+app.use(require('./routes/user.js'));
 
+app.listen(process.env.PORT||3300,() => {
+    console.log("Servidor corriendo en el puerto 3300");
+});
 
-// Uso del historial de logs
-const logger = new LogHistory();
-
-// Metodos para añadir al log
-// logger.addLog('INFO', 'La aplicación ha iniciado');
-// logger.addLog('DEBUG', 'Cargando datos del usuario');
-// logger.addLog('ERROR', 'No se pudo conectar a la base de datos');
-// logger.addLog('WARN', 'La memoria está llegando al límite');
-
-// console.log('Todos los logs:');
-// console.table(logger.getLogs());
-
-// console.log('Logs de nivel ERROR:');
-// console.table(logger.filterLogsByLevel('ERROR'));
-
-// logger.clearLogs();
-// console.log('Logs después de limpiar:', logger.getLogs());
-
+module.exports = app;

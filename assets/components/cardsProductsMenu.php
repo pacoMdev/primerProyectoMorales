@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <body>
@@ -12,9 +11,9 @@
                 foreach ($category->products as $product) {
                     $product_id = $product->getProduct_id();
                     ?>
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 container-sm card border-0 p-0 m-0" style="width:300px;" id="cart_product">
-                        <img src="<?= image . $product->getImageURL(); ?>" height="90%" width="100%" class="card-img-top"
-                            alt="imagen del producto">
+                    <div class="card col-12 col-sm-6 col-md-4 col-lg-3 container-sm border-0 p-0 m-0 shadow-sm" style="width:300px;" id="cart_product">
+                        <img src="<?= image . $product->getImageURL(); ?>"  width="100%" max-height="200px" class="card-img-top"
+                            alt="imagen del producto" id="image_product">
                         <div class="card-body">
                             <h5 class="card-title fw-bold fs-4"><?= $product->getName() ?></h5>
                             <p class="card-text fw-lighter fs-6"><?= $product->getDescription() ?></p>

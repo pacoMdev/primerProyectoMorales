@@ -59,7 +59,7 @@ function createTable(data) {
     const tbody = document.createElement("tbody");
 
     // Crear encabezados de la tabla
-    const headers = ["ID", "Name", "Age", "ESTADO"];
+    const headers = ["BOX", "ID", "Name", "Age", "ESTADO"];
     const trHead = document.createElement("tr");
     headers.forEach(header => {
         const th = document.createElement("th");
@@ -71,11 +71,19 @@ function createTable(data) {
     // Crear filas de la tabla
     data.forEach(item => {
         const tr = document.createElement("tr");
+        const td_check = document.createElement("td")
+        const input_check = document.createElement("input")
+        input_check.setAttribute("type", "checkbox")
+        
+        td_check.appendChild(input_check)
+        tr.appendChild(td_check)
+
         Object.values(item).forEach(value => {
             const td = document.createElement("td");
             td.textContent = value;
             tr.appendChild(td);
         });
+
         const td = document.createElement("td")
         td.setAttribute("type", "button")
         const cont_img = document.createElement("img")

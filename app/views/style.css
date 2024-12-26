@@ -105,6 +105,38 @@
     font-family: 'Bull', sans-serif;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  header {
+    color: white;
+    text-align: center;
+  }
+
+  main {
+    flex: 1; /* Este es el truco para que ocupe el espacio restante */
+    padding: 20px;
+    background-color: #f4f4f4;
+  }
+
+  footer {
+    color: white;
+  }
+
+
+
+  .register-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
 /* HEADER */
 
 .contenido-header li a {
@@ -187,7 +219,10 @@
 }
 
 /* main */
-
+#image_product{
+    background-color: var(--color-num-8);
+    padding: 0px;
+}
 
 
 /* ERROR PAGE */
@@ -259,6 +294,9 @@
 }
 .icon-md-3{
     fill: var(--color-num-3);
+}
+.fll-bs-color-3{
+    fill: var(--color-num-8);
 }
 .sidebar .nav-link:hover{
     color: var(--color-num-3);

@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -33,7 +32,7 @@
                 </thead>
                 <tbody class="border-top">
                     <tr>
-                        <td>
+                        <td class="w-50">
                             <div class="d-flex align-items-center">
                                 <img src="<?= image . $imageURL; ?>" alt="imagen del producto"
                                     class="img-fluid me-3 object-fit-cover" height="150px" width="150px">
