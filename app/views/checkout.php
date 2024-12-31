@@ -21,8 +21,7 @@
             <div class="container">
                 <div class="row gx-3">
                     <div class="col-12 col-lg-5 py-1">
-                    <?= include_once("../assets/components/formCheckout.php") ?>
-    
+                        <?= include_once("../assets/components/formCheckout.php") ?>
                     </div>
                     <div class="col-12 col-lg-7 py-1">
                         <?php include_once("../assets/components/tableCheckOut.php"); ?>

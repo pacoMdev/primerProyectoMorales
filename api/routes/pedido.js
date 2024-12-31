@@ -7,8 +7,8 @@ dotenv.config();
 //conexión con la base de datos
 const { connection } = require("../config.db");
 
-const getUser = (request, response) => {
-    connection.query("SELECT * FROM user",
+const getPedido = (request, response) => {
+    connection.query("SELECT * FROM pedido",
         (error, results) => {
             if (error)
                 throw error;
@@ -17,16 +17,16 @@ const getUser = (request, response) => {
 };
 
 //ruta
-app.route("/api/user")
-    .get(getUser);
+app.route("/api/pedido")
+    .get(getPedido);
 
 
-const getTalbeUser = (request, response) => {
+const getTalbePedido = (request, response) => {
     connection.query(`
         SELECT COLUMN_NAME, DATA_TYPE
         FROM INFORMATION_SCHEMA.COLUMNS
         WHERE TABLE_SCHEMA = 'Tres_Tacos_DB'
-        AND TABLE_NAME = 'user'
+        AND TABLE_NAME = 'pedido'
         ORDER BY ORDINAL_POSITION;
         `,
         (error, results) => {
@@ -37,46 +37,40 @@ const getTalbeUser = (request, response) => {
 };
 
 //ruta
-app.route("/api/table/user")
-    .get(getTalbeUser);
+app.route("/api/table/pedido")
+    .get(getTalbePedido);
 
 
-const postUser = (request, response) => {
+const postPedido = (request, response) => {
     const { email, apple_id, password, phone, direccion, poblacion, ciudad, date_modification, dade_creation, name, surname_1 } = request.body;
-    // comprueva si hay datos siguientes, sino manda error
-    if (!email || password || name || surname_1){
-        return response.status(400).json({error: "faltan datos obligatorios"})
-    }
-    connection.query("INSERT INTO user(email, apple_id, password, phone, direccion, poblacion, ciudad, date_modification, date_creation, name, surname_1) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+    connection.query("INSERT INTO pedido(email, apple_id, password, phone, direccion, poblacion, ciudad, date_modification, date_creation, name, surname_1) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ",
         [email, apple_id, password, phone, direccion, poblacion, ciudad, date_modification, dade_creation, name, surname_1],
         (error, results) => {
-            if (error){
-                console.error("Error al insertar el usuario:", error);
-                return response.status(500).json({ error: "Error en la base de datos" });
-            }
+            if (error)
+                throw error;
             response.status(201).json({ "Item añadido correctamente": results.affectedRows });
         });
 };
 
 //ruta
-app.route("/api/user")
-    .post(postUser);
+app.route("/api/pedido")
+    .post(postPedido);
 
 
-const delUser = (request, response) => {
+const delPedido = (request, response) => {
     const id = request.params.id;
-    connection.query("DELETE FROM user WHERE user_id = ?",
+    connection.query("DELETE FROM pedido WHERE pedido_id = ?",
         [id],
         (error, results) => {
             if (error)
                 throw error;
-            response.status(201).json({ "Item eliminado": results.affectedRows });
+            response.status(201).json({ "Pedido eliminado": results.affectedRows });
         });
 };
 
 //ruta
-app.route("/api/user/:id")
-    .delete(delUser);
+app.route("/api/pedido/:id")
+    .delete(delPedido);
 
 
 module.exports = app;
