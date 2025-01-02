@@ -42,13 +42,21 @@ app.route("/api/table/promotion")
 
 
 const postPromotion = (request, response) => {
-    const { email, apple_id, password, phone, direccion, poblacion, ciudad, date_modification, dade_creation, name, surname_1 } = request.body;
-    connection.query("INSERT INTO user(email, apple_id, password, phone, direccion, poblacion, ciudad, date_modification, date_creation, name, surname_1) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ",
-        [email, apple_id, password, phone, direccion, poblacion, ciudad, date_modification, dade_creation, name, surname_1],
+    const { name_discount, description, date_ini, date_fin, porcentaje, date_creation, imageURL, promotion_code } = request.body;
+    // comprueva si hay datos siguientes, sino manda error
+    if (!name_discount || !description || !porcentaje || !promotion_code) {
+        return response.status(400).json({ error: "faltan datos obligatorio" })
+    }
+    // comprueva que si esta vacia introduce la fecha actual de sys, else la que ya tiene
+    const dateCreationValue = date_creation && date_creation.trim() !== "" ? date_creation : new Date().toISOString();
+    connection.query("INSERT INTO promotion (name_discount, description, date_ini, date_fin, porcentaje, date_creation, imageURL, promotion_code) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+        [name_discount, description, date_ini, date_fin, porcentaje, dateCreationValue, imageURL, promotion_code],
         (error, results) => {
-            if (error)
-                throw error;
-            response.status(201).json({ "Item añadido correctamente": results.affectedRows });
+            if (error) {
+                console.error("Error al insertar la promocion:", error);
+                return response.status(500).json({ error: "Error en la base de datos" });
+            }
+            response.status(201).json({ "Promocion añadida correctamente": results.affectedRows });
         });
 };
 
@@ -56,6 +64,43 @@ const postPromotion = (request, response) => {
 app.route("/api/promotion")
     .post(postPromotion);
 
+
+const putPromotion = (request, response) => {
+    const { id } = request.params; // ID del registro a actualizar
+    const { name_discount, description, date_ini, date_fin, porcentaje, date_creation, imageURL, promotion_code } = request.body; // Campos a actualizar
+
+    if (!id || (!name_discount && !porcentaje && !promotion_code)) {
+        return response.status(400).json({ error: "Faltan datos necesarios para actualizar." });
+    }
+
+    const query = `
+                UPDATE promotion 
+                SET name_discount = ?, 
+                    description = ?,
+                    date_ini = ?,
+                    date_fin = ?,
+                    porcentaje = ?,
+                    date_creation = ?,
+                    imageURL = ?,
+                    promotion_code = ?
+                WHERE promotion_id = ?`;
+
+    connection.query(query, [name_discount, description, date_ini, date_fin, porcentaje, date_creation, imageURL, promotion_code, id], (error, results) => {
+        if (error) {
+            console.error("Error al actualizar:", error);
+            return response.status(500).json({ error: "Error al actualizar la promocion" });
+        }
+
+        if (results.affectedRows === 0) {
+            return response.status(404).json({ error: "La promocion no existe" });
+        }
+
+        response.status(200).json({ message: "Promocion actualizada correctamente." });
+    });
+};
+
+//ruta
+app.route("/api/promotion/:id").put(putPromotion);
 
 const delUser = (request, response) => {
     const id = request.params.id;

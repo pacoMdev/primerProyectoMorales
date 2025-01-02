@@ -41,26 +41,63 @@ app.route("/api/table/ingredient")
     .get(getTalbeIngredient);
 
 
-    const postIngredient = (request, response) => {
-        const { name, precio } = request.body;
-        // comprueva si hay datos siguientes, sino manda error
-        if (!name || precio){
-            return response.status(400).json({error: "faltan datos obligatorios"})
-        }
-        connection.query("INSERT INTO ingredient (name, precio) VALUES (?, ?)",
-            [name, precio],
-            (error, results) => {
-                if (error){
-                    console.error("Error al insertar el ingrediente:", error);
-                    return response.status(500).json({ error: "Error en la base de datos" });
-                }
-                response.status(201).json({ "Ingrediente añadido correctamente": results.affectedRows });
-            });
-    };
+const postIngredient = (request, response) => {
+    const { name, precio } = request.body;
+    // comprueva si hay datos siguientes, sino manda error
+    if (!name || !precio) {
+        return response.status(400).json({ error: "faltan datos obligatorio" })
+    }
+    connection.query("INSERT INTO ingredient (name, precio) VALUES (?, ?)",
+        [name, precio],
+        (error, results) => {
+            if (error) {
+                console.error("Error al insertar el ingrediente:", error);
+                return response.status(500).json({ error: "Error en la base de datos" });
+            }
+            response.status(201).json({ "Ingrediente añadido correctamente": results.affectedRows });
+        });
+};
 
 //ruta
 app.route("/api/ingredient")
     .post(postIngredient);
+
+
+
+
+
+const putIngredient = (request, response) => {
+    const { id } = request.params; // ID del registro a actualizar
+    const { name, precio } = request.body; // Campos a actualizar
+
+    if (!id || (!name && !precio)) {
+        return response.status(400).json({ error: "Faltan datos necesarios para actualizar." });
+    }
+
+    const query = `
+            UPDATE ingredient 
+            SET name = ?, 
+                precio = ?
+            WHERE ingredient_id = ?`;
+
+    connection.query(query, [name, precio, id], (error, results) => {
+        if (error) {
+            console.error("Error al actualizar:", error);
+            return response.status(500).json({ error: "Error al actualizar el ingrediente" });
+        }
+
+        if (results.affectedRows === 0) {
+            return response.status(404).json({ error: "El ingrediente no existe" });
+        }
+
+        response.status(200).json({ message: "Ingrediente actualizado correctamente." });
+    });
+};
+
+//ruta
+app.route("/api/ingredient/:id").put(putIngredient);
+
+
 
 
 const delIngredient = (request, response) => {

@@ -42,19 +42,23 @@ app.route("/api/table/user")
 
 
 const postUser = (request, response) => {
-    const { email, apple_id, password, phone, direccion, poblacion, ciudad, date_modification, dade_creation, name, surname_1 } = request.body;
+    const { email, apple_id, password, phone, direccion, poblacion, ciudad, date_modification, date_creation, name, surname_1 } = request.body;
     // comprueva si hay datos siguientes, sino manda error
-    if (!email || password || name || surname_1){
+    if (!email || !password || !name || !surname_1){
         return response.status(400).json({error: "faltan datos obligatorios"})
     }
+
+    // comprueva que si esta vacia introduce la fecha actual de sys, else la que ya tiene
+    const dateCreationValue = date_creation && date_creation.trim() !== "" ? date_creation : new Date().toISOString();
+
     connection.query("INSERT INTO user(email, apple_id, password, phone, direccion, poblacion, ciudad, date_modification, date_creation, name, surname_1) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-        [email, apple_id, password, phone, direccion, poblacion, ciudad, date_modification, dade_creation, name, surname_1],
+        [email, apple_id, password, phone, direccion, poblacion, ciudad, date_modification, dateCreationValue, name, surname_1],
         (error, results) => {
             if (error){
                 console.error("Error al insertar el usuario:", error);
                 return response.status(500).json({ error: "Error en la base de datos" });
             }
-            response.status(201).json({ "Item añadido correctamente": results.affectedRows });
+            response.status(201).json({ "Usuario añadido correctamente": results.affectedRows });
         });
 };
 

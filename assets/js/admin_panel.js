@@ -1,12 +1,9 @@
-const tableData = [
-    { id: 1, name: "Alice", age: 25 },
-    { id: 2, name: "Bob", age: 30 },
-    { id: 3, name: "Charlie", age: 35 },
-];
-const header_pedido = ["pedido_id", "user_id", "discount_id"]
 
+/**
+ * 
+ */
 function creation_filter() {
-    const list_tables = ["pedido", "user", "ingredient", "category", "product", "promotion"]
+    const list_tables = ["pedido", "user", "ingredient", "category", "product", "promotion", "history_log"]
     const general_div = document.createElement("div")
     general_div.setAttribute("class", "container w-100")
     list_tables.forEach(table => {
@@ -21,6 +18,10 @@ function creation_filter() {
     document.getElementById("container_data_admin").appendChild(general_div)
 
 }
+
+/**
+ * 
+ */
 function creation_search_line() {
 
     // contenedor de search
@@ -41,13 +42,17 @@ function creation_search_line() {
     input_search_gen.append(button_search)
     document.getElementById("container_data_admin").appendChild(input_search_gen)
 }
-// Crear una tabla
+
+/**
+ * Creacion de la tabla de forma dinamica secun el nombre de tabla recivida, por defecto pedido
+ * @param {*} nameTable 
+ */
 async function createTable(nameTable = "pedido") {
     //guarda clave de tabla para usar mas adelante en CRUD
     sessionStorage.setItem("nameTable", nameTable)
     const nameTab = sessionStorage.getItem("nameTable")
     // crea el modal
-    creation_modal(nameTab)
+    creation_modal(nameTab, "create")
 
     const bloque = document.getElementById("tabla_admin"); // Seleccionar el elemento
     if (bloque) {
@@ -68,13 +73,14 @@ async function createTable(nameTable = "pedido") {
 
     // alade id a tabla
     table.setAttribute("id", "tabla_admin")
+    table.setAttribute("style", "width: 100%; table-layout: fixed; word-wrap: break-word;")
 
     // Crear encabezados de la tabla
     // const headers = ["BOX", "ID", "Name", "Age", "ESTADO"];
     const trHead = document.createElement("tr");
-    const th = document.createElement("th");
-    th.textContent = "";
-    trHead.appendChild(th);
+    // const th = document.createElement("th");
+    // th.textContent = "";
+    // trHead.appendChild(th);
     header_data.forEach(header => {
         const th = document.createElement("th");
         th.textContent = header["COLUMN_NAME"];
@@ -86,22 +92,39 @@ async function createTable(nameTable = "pedido") {
     data.forEach(item => {
         const tr = document.createElement("tr");
         tr.setAttribute("class", "tr_data");
-        const td_check = document.createElement("td")
-        const input_check = document.createElement("input")
-        input_check.setAttribute("type", "checkbox")
+        // const td_check = document.createElement("td")
+        // const input_check = document.createElement("input")
+        // input_check.setAttribute("type", "checkbox")
 
-        td_check.appendChild(input_check)
-        tr.appendChild(td_check)
+        // td_check.appendChild(input_check)
+        // tr.appendChild(td_check)
 
         Object.values(item).forEach(value => {
             const td = document.createElement("td");
+            td.setAttribute("style", "padding: 8px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;")
             td.textContent = value;
             tr.appendChild(td);
         });
 
+        // boton editar
+        const td1 = document.createElement("td")
+        td1.setAttribute("type", "button")
+        td1.setAttribute("class", "button_edit")
+        td1.setAttribute("style", "padding-right:15px;")
+        const cont_img1 = document.createElement("img")
+        cont_img1.setAttribute("src", "../assets/icons/slider-3-vertical-svgrepo-com.svg")
+        cont_img1.setAttribute("width", "20px")
+        cont_img1.setAttribute("height", "20px")
+        cont_img1.setAttribute("alt", "edit")
+
+        td1.appendChild(cont_img1)
+        tr.appendChild(td1)
+
+        // boton eliminar
         const td = document.createElement("td")
         td.setAttribute("type", "button")
         td.setAttribute("class", "button_delete")
+        td.setAttribute("style", "padding-left:15px;")
         const cont_img = document.createElement("img")
         cont_img.setAttribute("src", "../assets/icons/trash-svgrepo-com.svg")
         cont_img.setAttribute("width", "20px")
@@ -120,14 +143,30 @@ async function createTable(nameTable = "pedido") {
     // Insertar la tabla en el contenedor
     document.getElementById("container_data_admin").appendChild(table);
     
+    // evento para editar los datos del tr seleccionado a traves del icono de slide 3
+    document.querySelector("tbody").addEventListener("click", (event) => {
+        const button = event.target.closest(".button_edit");
+        if (button) {
+            const trData = button.closest("tr");
+            const nameTable = sessionStorage.getItem("nameTable");
+            const id_data = trData.querySelector("td:nth-child(1)").textContent.trim();
+            
+            const trDataArr=[]
+            const fullTrData = trData.querySelectorAll("td")
+            fullTrData.forEach(data => {
+                trDataArr.push(data.textContent)
+            });
 
+            openEditModal(header_data, trDataArr, nameTable, id_data);
+        }
+    });
     // evento para eliminar los datos del tr seleccionado a traves del icono de trash
     document.querySelector("tbody").addEventListener("click", (event) => {
         const button = event.target.closest(".button_delete");
         if (button) {
             const trData = button.closest("tr");
             const nameTable = sessionStorage.getItem("nameTable");
-            const id_data = trData.querySelector("td:nth-child(2)").textContent.trim();
+            const id_data = trData.querySelector("td:nth-child(1)").textContent.trim();
             
             // confirmacion de elminar datos
             if (confirm("¿Estas seguro de eliminar este dato?")){
@@ -136,6 +175,11 @@ async function createTable(nameTable = "pedido") {
         }
     });
 }
+
+/**
+ * Creacion del modal para CREATE
+ * @param {*} nameTable 
+ */
  async function creation_modal(nameTable) {
     // elimina modal si ya existe
     const bloque = document.getElementById("staticBackdrop"); // Seleccionar el elemento
@@ -195,15 +239,30 @@ async function createTable(nameTable = "pedido") {
 
     const div_input = document.createElement("div")
     div_input.setAttribute("class", "w-100")
-    name_campo_table.forEach(data => {
+    name_campo_table.slice(1).forEach(data => {
         const div_gen_input = document.createElement("div")
         div_gen_input.setAttribute("clas", "d-flex flex-column")
 
         const label_data = document.createElement("label")
         label_data.textContent = data["COLUMN_NAME"]
+
+        // crea input de form (no form)
         const input_data = document.createElement("input")
-        input_data.setAttribute("type", "text")
-        input_data.setAttribute("id", "input_data_table")
+        // comprueva que tipo es (datetime, varchar, int, double, ...)
+        if (data["DATA_TYPE"]=="varchar"){
+            input_data.setAttribute("type", "text")
+
+        }else if (data["DATA_TYPE"]=="int"){
+            input_data.setAttribute("type", "number")
+
+        }else if (data["DATA_TYPE"]=="double"){
+            input_data.setAttribute("type", "number")
+
+        }else if (data["DATA_TYPE"]=="datetime"){
+            input_data.setAttribute("type", "datetime-local")
+
+        }
+        input_data.setAttribute("class", "input_data_table")
 
         div_gen_input.append(label_data)
         div_gen_input.append(input_data)
@@ -228,7 +287,8 @@ async function createTable(nameTable = "pedido") {
     const mod_footer_button2 = document.createElement("button");
     mod_footer_button2.setAttribute("type", "button");
     mod_footer_button2.setAttribute("class", "btn btn-primary");
-    mod_footer_button2.setAttribute("id", "add_data_table");
+    mod_footer_button2.setAttribute("id", "all_data_table");
+    mod_footer_button2.setAttribute("data-bs-dismiss", "modal");
     mod_footer_button2.textContent = "Añadir";
 
     // Agregar los botones al pie del modal
@@ -246,8 +306,94 @@ async function createTable(nameTable = "pedido") {
 
     // Añadir el modal al contenedor en el HTML
     document.getElementById("container_data_admin").appendChild(modal);
+
+    // const nameTables = sessionStorage.getItem("nameTable")
+
+    // Añade evento al añadir a tabla desde modal
+    document.getElementById("all_data_table").addEventListener("click", function(){
+        const data_to_add = []
+        document.querySelectorAll(".input_data_table").forEach(data =>{
+            data_to_add.push(data.value)
+        })
+        
+        const dataTable={}
+        name_campo_table.slice(1).map((data, index) => {
+            dataTable[data["COLUMN_NAME"]]=data_to_add[index]
+        });
+        
+        // console.log("dataTable")
+        console.log(dataTable)
+
+        console.log("añadirDatosTabla function")
+        añadirDatosTabla(nameTable, dataTable) 
+
+    })
 }
 
+function openEditModal(header_data, trData, nameTable, id_data) {
+    // Crear el modal(div form) dinámicamente
+    const modal = document.createElement("div");
+    modal.className = "modal";
+    modal.innerHTML = `
+      <div class="modal-content" style="width: 400px; left: 25%; padding: 23px;">
+        <span class="close" type="button" style="width: 20px; font-size: 20px;">&times;</span>
+        <h5>Modificar ${nameTable}</h5>
+        <form id="modalForm">
+          ${header_data.slice(1).map((key, index) => `
+            <label for="${key["COLUMN_NAME"]}">${key["COLUMN_NAME"]}:</label>
+            <input type="${key["DATA_TYPE"]=="varchar" ? "text" : key["DATA_TYPE"]=="int" ? "number" : key["DATA_TYPE"]=="double" ? "number" : key["DATA_TYPE"]=="datetime" ? "datetime-local" : "number"}" id="${key["COLUMN_NAME"]}" name="${key["COLUMN_NAME"]}" value="${key["DATA_TYPE"]=="datetime" ? trData[index+1].substring(0, trData[index+1].length - 1) : trData[index+1] || ""}" class="data_update">
+            <br>
+          `).join("")}
+          <button type="submit" style="margin-top: 20px;">Guardar</button>
+        </form>
+      </div>
+    `;
+
+    document.body.appendChild(modal);
+  
+    // Mostrar el modal
+    modal.style.display = "block";
+  
+    // Cerrar el modal
+    modal.querySelector(".close").addEventListener("click", () => {
+      modal.remove();
+    });
+    document.getElementById("modalForm").addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const dataTable = document.getElementsByClassName("data_update")
+
+        const dataArrTable = {}
+        header_data.slice(1).map((data, index) => {
+            dataArrTable[data["COLUMN_NAME"]] = dataTable[index].value
+        })
+        console.log(dataArrTable)
+
+        editarDatosTabla(nameTable, id_data, dataArrTable)
+        modal.remove();
+        createTable(nameTable)
+    })
+
+}
+
+function getDate() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0'); // Mes empieza en 0
+    const day = String(now.getDate()).padStart(2, '0');
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+
+    return `${year}-${month}-${day}T${hours}:${minutes}`;
+}
+
+
+
+// READ HEADER TABLE
+/**
+ * Lee los datos de la api y extrae el titulo del campo y su tipo
+ * @param {tabla de la api} nameTable 
+ * @returns 
+ */
 async function obtenerNombresTablas(nameTable) {
     try {
         const response = await fetch(`http://localhost:3300/api/table/${nameTable}`);
@@ -259,6 +405,12 @@ async function obtenerNombresTablas(nameTable) {
     }
 }
 
+// READ
+/**
+ * Lee los datos de la API
+ * @param {tabla de la api} nameTable 
+ * @returns 
+ */
 async function obtenerDatosTabla(nameTable) {
     try {
         const response = await fetch(`http://localhost:3300/api/${nameTable}`);
@@ -269,6 +421,48 @@ async function obtenerDatosTabla(nameTable) {
         console.error('Error:', error);
     }
 }
+
+// UPDATE
+/**
+ * Actualiza los datos de la API
+ * @param {tabla de la api} nameTable 
+ * @param {id del dato a actualizar} id_data 
+ * @param {datos que se van a actualizar en object o map} dataTable 
+ */
+async function editarDatosTabla(nameTable, id_data, dataTable) {
+    try {
+        const response = await fetch(`http://localhost:3300/api/${nameTable}/${id_data}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(dataTable),
+        });
+
+        if (!response.ok) throw new Error("Error al actualizar los datos");
+
+        const resultado = await response.json();
+        // Modificar user id y date_creation
+        const dataLog = {
+            "date_creation": getDate(),
+            "name": "UPDATE data",
+            "description": `Update of ${nameTable} id -> ${id_data}`,
+            "user_id": "1"
+        }
+        añadirDatosTablaLog(dataLog)
+        console.log(resultado);
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+
+// DELETE
+/**
+ * Elimina todos los datos de la tabla indicada y por su id en la API
+ * @param {tabla de la api} nameTable 
+ * @param {id del dato a eliminar} id_data 
+ * @returns 
+ */
 async function eliminarDatosTabla(nameTable, id_data){
     try {
         const response = await fetch(`http://localhost:3300/api/${nameTable}/${id_data}`, {
@@ -280,11 +474,27 @@ async function eliminarDatosTabla(nameTable, id_data){
         if (!response.ok) throw new Error(`Error al eliminar los datos`);
         const datos = await response.json();
         createTable(nameTable)
+        // Modificar user id y date_creation
+        const dataLog = {
+            "date_creation": getDate(),
+            "name": "DELETE data",
+            "description": `Delete of ${nameTable} id->${id_data}`,
+            "user_id": "1"
+        }
+        añadirDatosTablaLog(dataLog)
         return datos; // Devolver los datos
     } catch (error) {
         console.error('Error:', error);
     }
 }
+
+// CREATE
+/**
+ * Añade los datos obtenidos a la API
+ * @param {tabla de la api} nameTable 
+ * @param {datos para insertar a api map o object} dataTable 
+ * @returns 
+ */
 async function añadirDatosTabla(nameTable, dataTable){
     try {
         const response = await fetch(`http://localhost:3300/api/${nameTable}`, {
@@ -297,23 +507,45 @@ async function añadirDatosTabla(nameTable, dataTable){
         if (!response.ok) throw new Error(`Error al añadir los datos`);
         const datos = await response.json();
         createTable(nameTable)
+        
+        // Modificar user id y date_creation
+        const dataLog = {
+            "date_creation": getDate(),
+            "name": "CREATE data",
+            "description": `Creation of ${nameTable}}`,
+            "user_id": "1"
+        }
+        añadirDatosTablaLog(dataLog)
         return datos; // Devolver los datos
     } catch (error) {
         console.error('Error:', error);
     }
 }
+// CREATE LOG
+/**
+ * Añade los datos obtenidos a la API LOG
+ * @param {tabla de la api} nameTable 
+ * @param {datos para insertar a api map o object} dataTable 
+ * @returns 
+ */
+async function añadirDatosTablaLog(dataTable){
+    try {
+        const response = await fetch(`http://localhost:3300/api/history_log`, {
+            method: 'POST', // Método POST
+            headers: {
+                'Content-Type': 'application/json', // Indica que los datos son JSON
+            },
+            body: JSON.stringify(dataTable)
+        });
+        if (!response.ok) throw new Error(`Error al añadir los datos`);
+        const datos = await response.json();
+        createTable(nameTable)
 
-
-
-// function iconTrash(){
-//     document.querySelectorAll(".tr_data").forEach(trData => {
-//         const nameTable = sessionStorage.getItem("nameTable")
-//         // console.log(nameTable)
-//         const id_data = trData.querySelector("td:nth-child(2)").textContent.trim(); // Seleccionar el segundo <td>
-//         // console.log(id_data)
-//         trData.querySelector(".button_delete").addEventListener("click", () => eliminarDatosTabla(nameTable, id_data))
-//     });
-// }
+        return datos; // Devolver los datos
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
 
 
 
@@ -333,24 +565,3 @@ document.querySelectorAll("#filter_table").forEach(data_table =>{
     data_table.addEventListener("click", () =>  createTable(table_filter_data))
     console.log("Event boton pulsado a " + data_table.textContent + ": created OK")
 });
-
-
-
-
-
-// Añade evento al añadir a tabla desde modal
-// document.getElementById("add_data_table").addEventListener("click", function(){
-//     const data_to_add = document.querySelectorAll("#input_data_table").forEach(data =>{
-//         console.log(data.value)
-//     })
-//     const nameTable = sessionStorage.getItem("nameTable")
-//     const data_header_table = obtenerDatosTabla(nameTable)
-
-//     dataTable={}
-//     data_header_table.forEach((data, index) => {
-//         dataTable[data]=data_header_table[index]
-//     });
-//     console.log("ABC:"+dataTable)
-
-//     // añadirDatosTabla(nameTable, dataTable)   
-// })

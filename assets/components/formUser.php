@@ -11,19 +11,19 @@
             <!-- Campo de Nombre -->
             <div class="mb-3 w-50">
                 <label for="name" class="form-lavel">Nombre:</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Admin" class=" form-control">
+                <input type="text" class="form-control" id="name" name="name" placeholder="<?= $name ?>" class=" form-control">
             </div>
             <!-- Campo de Apellido -->
             <div class="mb-3 w-50">
                 <label for="surname">Apellido:</label>
-                <input type="text" class="form-control" id="surname" name="surname" placeholder="THOR">
+                <input type="text" class="form-control" id="surname" name="surname" placeholder="<?= $surname ?>">
             </div>
         </div>
         <div class="d-flex">
             <!-- Campo de Email -->
             <div class="mb-3 w-50">
                 <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="admin@admin.com" disabled>
+                <input type="email" class="form-control" id="email" name="email" placeholder="<?= $email ?>" disabled>
             </div>
             <!-- Button trigger modal -->
              <div class="mb-3 w-50">
