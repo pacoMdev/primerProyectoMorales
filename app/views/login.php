@@ -22,7 +22,7 @@
         <div class="login-container mx-auto align-middle text-center w-100 bg-bs-color-white rounded shadow">
             <div class="w-100 justify-content-center mx-auto">
                 <a href="?controller=home&action=index">
-                    <img src="<?= logo."_07827ff2-68a6-4dd1-acd3-4a346812c659-Photoroom.png" ?>" alt=" logo de la empresa" height="150px" width="150px">
+                    <img src="<?= logo."07827ff2-68a6-4dd1-acd3-4a346812c659-Photoroom.svg" ?>" alt=" logo de la empresa" height="150px" width="150px">
                 </a>
                 <h4 class="fw-normal">Bienvenido</h4>
                 <p class="fw-light">Regístrate para sentir el gran sabor de Tres Tacos</p>

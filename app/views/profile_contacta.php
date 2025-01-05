@@ -39,11 +39,13 @@
                         Mis pedidos
                     </a>
                     <a href="?controller=profile&action=contacta" class="nav-link px-4 py-3 tx-bs-color-3 active">
-                        <span><svg width="25px" height="25px" viewBox="0 0 24 24" fill="none"
+                        <span>
+                            <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path class="fll-bs-color-3" fill-rule="evenodd" clip-rule="evenodd"
                                     d="M12.5 3C7.8056 3 4.00002 6.80558 4.00002 11.5C4.00002 13.3106 4.56503 14.9863 5.52839 16.3642C5.65702 16.5482 5.72 16.7701 5.70721 16.9942C5.67939 17.4813 5.61054 18.0464 5.4806 18.6961C5.34675 19.3654 5.17843 19.9417 4.99863 20.4321L8.84213 19.4072C9.04566 19.3529 9.26113 19.3643 9.45781 19.4397C10.401 19.8013 11.4262 20 12.5 20C17.1944 20 21 16.1944 21 11.5C21 6.80558 17.1944 3 12.5 3ZM2.28337 21.3026C2.28497 21.3008 2.28815 21.2973 2.2928 21.292C2.30653 21.2764 2.3331 21.2451 2.36973 21.1972C2.44292 21.1015 2.55663 20.939 2.68837 20.7019C2.95112 20.2289 3.28993 19.4515 3.51944 18.3039C3.60229 17.8896 3.65453 17.5251 3.6852 17.2072C2.61921 15.5638 2.00002 13.6029 2.00002 11.5C2.00002 5.70101 6.70103 1 12.5 1C18.299 1 23 5.70101 23 11.5C23 17.299 18.299 22 12.5 22C11.2942 22 10.1339 21.7963 9.05302 21.4208L3.25769 22.9662C2.82058 23.0828 2.35966 22.8914 2.1337 22.4995C1.91001 22.1115 1.97175 21.6227 2.28337 21.3026Z" />
-                            </svg></span>
+                            </svg>
+                        </span>
                         Contacta
                     </a>
                     <a href="?controller=profile&action=show_profile" class="nav-link px-4 py-3 tx-bs-color-3">
@@ -65,9 +67,29 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-9 col-lg-10 main-content">
-                <h1 class="p-3 fw-semibold fs-3">Configuracion</h1>
-                <?= include_once("../assets/components/formUser.php") ?>
+            <div class="col-md-9 col-lg-10 main-content m-0 p-0">
+                <section class="video-container w-100 h-100 overflow-hidden position-relative">
+                    <img src="<?= image."help_image.webp"?>" alt="imagen help" height="100%" width="100%">
+            
+                    <!-- Overlay con el degradado -->
+                    <div class="bg-linear-gradient2 position-absolute top-0 left-0 w-100 h-100"></div>
+                    
+                    <!-- Contenido encima del video -->
+                    <div class="position-absolute top-50 start-50 translate-middle text-white text-left">
+                        <p class="border-4 border-bottom border-danger w-auto d-inline-flex">CONTACTO</p>
+                        <h1 class="tx-bs-color-8 fs-88 fw-bold">Podemos ayudarte</h1>
+                        <p class="fs-3 fw-light tx-bs-color-8">Deja que nuestro asistente te ponga en contacto con la persona indicada.</p>
+                        <a type="button"
+                            class="d-flex w-75 bg-bs-color-5 border-0 rounded-pill justify-content-center align-middle py-2 text-white gap-3 fw-light fs-6 mx-auto text-decoration-none d-inline-flex w-auto px-4" >
+                            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path class="fll-bs-color-3" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M12.5 3C7.8056 3 4.00002 6.80558 4.00002 11.5C4.00002 13.3106 4.56503 14.9863 5.52839 16.3642C5.65702 16.5482 5.72 16.7701 5.70721 16.9942C5.67939 17.4813 5.61054 18.0464 5.4806 18.6961C5.34675 19.3654 5.17843 19.9417 4.99863 20.4321L8.84213 19.4072C9.04566 19.3529 9.26113 19.3643 9.45781 19.4397C10.401 19.8013 11.4262 20 12.5 20C17.1944 20 21 16.1944 21 11.5C21 6.80558 17.1944 3 12.5 3ZM2.28337 21.3026C2.28497 21.3008 2.28815 21.2973 2.2928 21.292C2.30653 21.2764 2.3331 21.2451 2.36973 21.1972C2.44292 21.1015 2.55663 20.939 2.68837 20.7019C2.95112 20.2289 3.28993 19.4515 3.51944 18.3039C3.60229 17.8896 3.65453 17.5251 3.6852 17.2072C2.61921 15.5638 2.00002 13.6029 2.00002 11.5C2.00002 5.70101 6.70103 1 12.5 1C18.299 1 23 5.70101 23 11.5C23 17.299 18.299 22 12.5 22C11.2942 22 10.1339 21.7963 9.05302 21.4208L3.25769 22.9662C2.82058 23.0828 2.35966 22.8914 2.1337 22.4995C1.91001 22.1115 1.97175 21.6227 2.28337 21.3026Z" />
+                        </svg>
+                        <p class="p-0 m-0">Tu pregunta</p>
+                        </a>
+                    </div>
+                </section>
             </div>
         </section>
     </main>

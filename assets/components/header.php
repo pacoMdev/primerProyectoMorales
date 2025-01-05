@@ -10,7 +10,7 @@
         <nav class="bg-bs-color-0 navbar navbar-expand-lg bg-bs-color-0 p-2">
             <div class="container-fluid p-0 m-0">
                 <a class="navbar-brand" href="?"><img
-                        src="<?= (logo . "_07827ff2-68a6-4dd1-acd3-4a346812c659-Photoroom.png"); ?>" alt="logo"
+                        src="<?= (logo . "07827ff2-68a6-4dd1-acd3-4a346812c659-Photoroom.svg"); ?>" alt="logo"
                         height="50px" width="50px"></a>
                 <button class="navbar-toggler border border-circle" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"

@@ -157,6 +157,9 @@ body {
 .bg-linear-gradient {
     background: linear-gradient(transparent, var(--color-num-8));
 }
+.bg-linear-gradient2 {
+    background: linear-gradient(transparent, var(--color-black));
+}
 
 .fs-88 {
     font-size: 88px;
@@ -223,6 +226,10 @@ body {
     background-color: var(--color-num-8);
     padding: 0px;
 }
+.fll-bs-color-5{
+    fill:var(--color-num-5);
+}
+
 
 
 /* ERROR PAGE */

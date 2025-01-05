@@ -1,7 +1,7 @@
 <?php
 
 class Database{
-    public static function connect($host = '127.0.0.1:3307', $user = 'root', $pass = 'root', $db = 'Tres_Tacos_DB'){
+    public static function connect($host = '127.0.0.1:3307', $user = 'root', $pass = 'root', $db = 'TT_DB'){
         try{
             $con = new mysqli($host, $user, $pass, $db);
             if ($con->connect_error) {

@@ -20,34 +20,44 @@ function creation_filter() {
 }
 
 /**
- * 
+ * Creacion del select con las opciones disponibles de moneda de la API
  */
-function creation_search_line() {
+async function creation_select_price() {
+    // opbiene datos de la api
+    const dataApi = await obtainPriceApi()
 
     // contenedor de search
-    const input_search_gen = document.createElement("div")
-    input_search_gen.setAttribute("class", "d-flex w-50")
-    input_search_gen.setAttribute("role", "search")
-    // input de buscar
-    const button_search = document.createElement("input")
-    button_search.setAttribute("class", "form-control me-2")
-    button_search.setAttribute("type", "search")
-    button_search.setAttribute("placeholder", "Search")
-    button_search.setAttribute("aria-label", "Search")
-    button_search.textContent = "Search"
+    const input_select = document.createElement("select")
+    input_select.setAttribute("id", "select_cash")
     
+    // input de select Price money
+    Object.keys(dataApi["data"]).map(data => {
+        const select_option = document.createElement("option")
+        select_option.setAttribute("value", data)
+        select_option.textContent = data
+        if (data == "EUR"){
+            select_option.setAttribute("selected", "")
+        }
+        input_select.appendChild(select_option)
+    })
 
+    document.getElementById("container_data_admin").appendChild(input_select)
 
-
-    input_search_gen.append(button_search)
-    document.getElementById("container_data_admin").appendChild(input_search_gen)
+    document.getElementById("select_cash").addEventListener("change", function(){
+        const val_select = document.getElementById("select_cash").value
+        const nameTab = sessionStorage.getItem("nameTable")
+        // no se porque no va
+        // const price = val_select=="EUR" ? dataApi["data"][val_select] : 1
+        price=dataApi["data"][val_select]
+        createTable(nameTab, price)
+    })
 }
 
 /**
  * Creacion de la tabla de forma dinamica secun el nombre de tabla recivida, por defecto pedido
  * @param {*} nameTable 
  */
-async function createTable(nameTable = "pedido") {
+async function createTable(nameTable = "pedido", price_cash=1) {
     //guarda clave de tabla para usar mas adelante en CRUD
     sessionStorage.setItem("nameTable", nameTable)
     const nameTab = sessionStorage.getItem("nameTable")
@@ -64,7 +74,6 @@ async function createTable(nameTable = "pedido") {
     const data = await obtenerDatosTabla(nameTable);    //datos tabla
     const header_data = await obtenerNombresTablas(nameTable)   //nombre campos tabla
     // console.log(header_data[0]["COLUMN_NAME"])
-
 
     // Crear elementos principales
     const table = document.createElement("table");
@@ -99,10 +108,18 @@ async function createTable(nameTable = "pedido") {
         // td_check.appendChild(input_check)
         // tr.appendChild(td_check)
 
-        Object.values(item).forEach(value => {
+        Object.entries(item).forEach(([key, value]) => {
             const td = document.createElement("td");
             td.setAttribute("style", "padding: 8px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;")
-            td.textContent = value;
+            arrNamePrice=["price", "precio", "subtotal", "tax", "price_total"]
+            // comnprovacion de conversion de moneda
+            if (arrNamePrice.includes(key)){
+                // conversion de precio
+                const priceChanged = Number.parseFloat(value * price_cash).toFixed(2)
+                td.textContent = priceChanged;
+            }else{
+                td.textContent = value;
+            }
             tr.appendChild(td);
         });
 
@@ -374,7 +391,10 @@ function openEditModal(header_data, trData, nameTable, id_data) {
     })
 
 }
-
+/**
+ * 
+ * @returns fecha actual en formato YYYY-MM_DD hh:mm:ss
+ */
 function getDate() {
     const now = new Date();
     const year = now.getFullYear();
@@ -386,6 +406,22 @@ function getDate() {
     return `${year}-${month}-${day}T${hours}:${minutes}`;
 }
 
+// READ
+/**
+ * Lee los datos de la API
+ * @returns datos de la api en json
+ */
+async function obtainPriceApi() {
+    try {
+        const apiKey = "fca_live_bpGoEgHITCBXPfEq2BvFF8iv6Y3QdHwSHsGvGKEN"
+        const response = await fetch(`https://api.freecurrencyapi.com/v1/latest?apikey=${apiKey}`);
+        if (!response.ok) throw new Error(`Error al obtener datos de la API`);
+        const datos = await response.json();
+        return datos; // Devolver los datos
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
 
 
 // READ HEADER TABLE
@@ -449,7 +485,7 @@ async function editarDatosTabla(nameTable, id_data, dataTable) {
             "description": `Update of ${nameTable} id -> ${id_data}`,
             "user_id": "1"
         }
-        añadirDatosTablaLog(dataLog)
+        añadirDatosTablaLog(dataLog, nameTable)
         console.log(resultado);
     } catch (error) {
         console.error("Error:", error);
@@ -481,7 +517,7 @@ async function eliminarDatosTabla(nameTable, id_data){
             "description": `Delete of ${nameTable} id->${id_data}`,
             "user_id": "1"
         }
-        añadirDatosTablaLog(dataLog)
+        añadirDatosTablaLog(dataLog, nameTable)
         return datos; // Devolver los datos
     } catch (error) {
         console.error('Error:', error);
@@ -515,7 +551,7 @@ async function añadirDatosTabla(nameTable, dataTable){
             "description": `Creation of ${nameTable}}`,
             "user_id": "1"
         }
-        añadirDatosTablaLog(dataLog)
+        añadirDatosTablaLog(dataLog, nameTable)
         return datos; // Devolver los datos
     } catch (error) {
         console.error('Error:', error);
@@ -528,7 +564,7 @@ async function añadirDatosTabla(nameTable, dataTable){
  * @param {datos para insertar a api map o object} dataTable 
  * @returns 
  */
-async function añadirDatosTablaLog(dataTable){
+async function añadirDatosTablaLog(dataTable, nameTable){
     try {
         const response = await fetch(`http://localhost:3300/api/history_log`, {
             method: 'POST', // Método POST
@@ -551,7 +587,7 @@ async function añadirDatosTablaLog(dataTable){
 
 // muestra elementos de accion
 creation_filter();
-creation_search_line();
+creation_select_price();
 // creation_modal();
 
 // muestreo de datos dashboard
