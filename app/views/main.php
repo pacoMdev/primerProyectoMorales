@@ -26,25 +26,25 @@
             <div class="carousel-item active">
                 <img src="<?= image . "delicious-tacos.webp"; ?>" class="d-block w-100 object-fit-cover" alt="Plato de tacos"
                     height="650px">
-                <div class="carousel-caption d-none d-md-block" style="bottom: 40px;">
-                    <h5>First slide label</h5>
-                    <p>Some representative placeholder content for the first slide.</p>
+                <div class="carousel-caption d-none d-md-block w-50 text-start" style="bottom: 40px;">
+                    <h5 class="fw-bold">Tacos de Pollo de Corral con Salsas Artesanales</h5>
+                    <p>Disfruta de unos deliciosos tacos rellenos de pollo de corral jugoso y tierno, sazonado con especias tradicionales y acompañado de una variedad de salsas artesanales.</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="<?= image . "delicious-nachos.webp"; ?>" class="d-block w-100 object-fit-cover" alt="Plato de nachos"
                     height="650px">
-                <div class="carousel-caption d-none d-md-block" style="bottom: 40px;">
-                    <h5>Second slide label</h5>
-                    <p>Some representative placeholder content for the second slide.</p>
+                <div class="carousel-caption d-none d-md-block w-50 text-start" style="bottom: 40px;">
+                    <h5 class="fw-bold">Nachos Deluxe con Guacamole y Queso Fundido</h5>
+                    <p>Un irresistible plato de nachos crujientes cubiertos con una generosa capa de queso fundido, acompañados de guacamole fresco, crema agria y jalapeños en rodajas.</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="<?= image . "delicious-burritos.webp"; ?>" class="d-block w-100 object-fit-cover" alt="Plato de burritos"
                     height="650px">
-                <div class="carousel-caption d-none d-md-block" style="bottom: 40px;">
-                    <h5>Third slide label</h5>
-                    <p>Some representative placeholder content for the third slide.</p>
+                <div class="carousel-caption d-none d-md-block w-50 text-start" style="bottom: 40px;">
+                    <h5 class="fw-bold">Burrito de Carne Asada al Estilo Mexicano</h5>
+                    <p>Un suculento burrito relleno de carne asada marinada y a la parrilla, acompañada de arroz, frijoles, guacamole y pico de gallo, todo envuelto en una suave tortilla de harina.</p>
                 </div>
             </div>
         </div>
